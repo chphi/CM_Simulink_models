@@ -27,9 +27,9 @@
 % the GUI.
 
 % steering model (steering ratio or full steering rack representation)
-model = 
+% model = 
 
 %% Simulink model parameters
 
 % discrete steering angle switch
-
+discrete_steer_angle = true;
