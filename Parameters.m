@@ -1,0 +1,35 @@
+%% Parameters of the simulink extension to the CarMaker model
+% contains the parameters needed to study the influence of using dynamical
+% models on the performance of the low level vehicle control algorithms.
+
+
+
+%% Input variables from CarMaker
+% Names of the variables to which CarMaker gives access to the simulink
+% user. These are the inputs of the path following (and other) algorithms.
+% These variables are described in detail in the reference manual of
+% CarMaker (chapter 29: 'User Accessible Quantities')
+
+% angular rates in body frame
+% omega_in.x = 'BodySensor.BD00.Omega_0.x';
+% omega_in.y = 'BodySensor.BD00.Omega_0.y';
+% omega_in.z = 'BodySensor.BD00.Omega_0.z';
+
+% useless, needs to put the name directly in the Simulink block.
+
+
+
+
+%% CarMaker model parameters
+% these parameters concern the car model and are sent to CarMaker. They can
+% be defined in the software but it is done here for centralization
+% purposes. However other things (such as the road) have to be defined in
+% the GUI.
+
+% steering model (steering ratio or full steering rack representation)
+model = 
+
+%% Simulink model parameters
+
+% discrete steering angle switch
+
