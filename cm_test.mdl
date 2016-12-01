@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.367"
+    ComputedModelVersion    "1.368"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -55,7 +55,7 @@ Model {
 	LoadSaveID		"452"
 	Extents			[1646.0, 868.0]
 	ZoomFactor		[1.0]
-	Offset			[-53.0, 144.0]
+	Offset			[-283.5, 152.8996592341291]
       }
     }
   }
@@ -65,9 +65,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Robot"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Nov 29 14:10:57 2016"
-  RTWModifiedTimeStamp	  402329451
-  ModelVersionFormat	  "1.%<AutoIncrement:367>"
+  LastModifiedDate	  "Wed Nov 30 15:05:16 2016"
+  RTWModifiedTimeStamp	  402415671
+  ModelVersionFormat	  "1.%<AutoIncrement:368>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -921,7 +921,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "576"
+    SIDHighWatermark	    "580"
     Block {
       BlockType		      SubSystem
       Name		      "CarMaker"
@@ -14789,7 +14789,7 @@ Model {
 	      RequestExecContextInheritance off
 	      System {
 		Name			"CreateBus VhclCtrl"
-		Location		[427, 52, 932, 745]
+		Location		[1911, -309, 3609, 759]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -15951,7 +15951,7 @@ Model {
 	      Name		      "Steering angle"
 	      SID		      "552"
 	      Ports		      [0, 3]
-	      Position		      [150, 798, 245, 872]
+	      Position		      [150, 843, 245, 917]
 	      ZOrder		      2
 	      RequestExecContextInheritance off
 	      System {
@@ -16250,6 +16250,103 @@ Model {
 	    }
 	    Block {
 	      BlockType		      SubSystem
+	      Name		      "lateral position to lane center"
+	      SID		      "577"
+	      Ports		      [0, 1]
+	      Position		      [160, 791, 235, 809]
+	      ZOrder		      5
+	      RequestExecContextInheritance off
+	      System {
+		Name			"lateral position to lane center"
+		Location		[1911, -309, 3609, 759]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"A4"
+		PaperUnits		"centimeters"
+		TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Scope
+		  Name			  "Scope"
+		  SID			  "578"
+		  Ports			  [1]
+		  Position		  [220, 14, 250, 46]
+		  ZOrder		  -2
+		  Floating		  off
+		  Location		  [2798, 14, 3122, 281]
+		  Open			  off
+		  NumInputPorts		  "1"
+		  List {
+		    ListType		    AxesTitles
+		    axes1		    "%<SignalLabel>"
+		  }
+		  List {
+		    ListType		    ScopeGraphics
+		    FigureColor		    "[0.5 0.5 0.5]"
+		    AxesColor		    "[0 0 0]"
+		    AxesTickColor	    "[1 1 1]"
+		    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+		    LineStyles		    "-|-|-|-|-|-"
+		    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
+		    MarkerStyles	    "none|none|none|none|none|none"
+		  }
+		  ShowLegends		  off
+		  YMin			  "-1"
+		  SaveName		  "ScopeData3"
+		  DataFormat		  "StructureWithTime"
+		  LimitDataPoints	  off
+		  SampleTime		  "0"
+		  ScrollMode		  off
+		}
+		Block {
+		  BlockType		  Reference
+		  Name			  "lateral position to center of road"
+		  SID			  "579"
+		  Ports			  [0, 1]
+		  Position		  [25, 68, 150, 92]
+		  ZOrder		  -1
+		  BackgroundColor	  "orange"
+		  LibraryVersion	  "1.469"
+		  SourceBlock		  "CarMaker4SL/Read CM Dict"
+		  SourceType		  "Read CarMaker Dictionary Variable(s)"
+		  xname			  "Vhcl.tRoad"
+		  xsync			  off
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "lat_pos"
+		  SID			  "580"
+		  Position		  [265, 73, 295, 87]
+		  ZOrder		  -3
+		  IconDisplay		  "Port number"
+		}
+		Line {
+		  ZOrder		  1
+		  SrcBlock		  "lateral position to center of road"
+		  SrcPort		  1
+		  Points		  [35, 0]
+		  Branch {
+		    ZOrder		    2
+		    Points		    [0, -50]
+		    DstBlock		    "Scope"
+		    DstPort		    1
+		  }
+		  Branch {
+		    ZOrder		    3
+		    DstBlock		    "lat_pos"
+		    DstPort		    1
+		  }
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
 	      Name		      "lateral position to road center"
 	      SID		      "556"
 	      Ports		      [0, 1]
@@ -16279,7 +16376,7 @@ Model {
 		  Position		  [220, 14, 250, 46]
 		  ZOrder		  -2
 		  Floating		  off
-		  Location		  [2798, 14, 3122, 281]
+		  Location		  [2521, 129, 2845, 396]
 		  Open			  on
 		  NumInputPorts		  "1"
 		  List {
