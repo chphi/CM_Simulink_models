@@ -1,16 +1,26 @@
 Model {
   Name			  "cm_test"
-  Version		  8.4
-  MdlSubVersion		  0
+  Version		  8.8
   SavedCharacterEncoding  "windows-1252"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.368"
+    ComputedModelVersion    "1.369"
     NumModelReferences	    0
     NumTestPointedSignals   0
+    NumProvidedFunctions    0
+    NumRequiredFunctions    0
+    NumResetEvents	    0
+    HasInitializeEvent	    0
+    HasTerminateEvent	    0
+    IsExportFunctionModel   0
   }
+  LogicAnalyzerGraphicalSettings ""
+  LogicAnalyzerPlugin	  "on"
+  LogicAnalyzerSignalOrdering ""
+  DiagnosticSuppressor	  "on"
+  SuppressorTable	  "22 serialization::archive 11 0 3 0 0 0 8 0"
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
@@ -20,6 +30,7 @@ Model {
   MinMaxOverflowArchiveMode "Overwrite"
   FPTRunName		  "Run 1"
   MaxMDLFileLineLength	  120
+  LastSavedArchitecture	  "win64"
   Object {
     $PropName		    "BdWindowsInfo"
     $ObjectID		    1
@@ -29,7 +40,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [1911.0, -309.0, 1698.0, 1068.0]
+      Location		      [1912.0, -231.0, 1696.0, 1066.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -53,10 +64,33 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkSubsys"
 	LoadSaveID		"452"
-	Extents			[1646.0, 868.0]
+	Extents			[1646.0, 887.0]
 	ZoomFactor		[1.0]
 	Offset			[-283.5, 152.8996592341291]
       }
+      Object {
+	$PropName		"DockComponentsInfo"
+	$ObjectID		6
+	$ClassName		"Simulink.DockComponentInfo"
+	Type			"GLUE2:PropertyInspector"
+	ID			"Property Inspector"
+	Visible			[0]
+	CreateCallback		""
+	UserData		""
+	Floating		[0]
+	DockPosition		"Right"
+	Width			[640]
+	Height			[480]
+      }
+      WindowState	      "AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAAB+PwCAAAAA/sAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
+      "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
+      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABfAP///wAAAAEAAAAAAAAAAPwCA"
+      "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
+      "QBjAHQAbwByAAAAAAD/////AAAAJwD///8AAAaQAAADrQAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
+      "////wEAAAB5/////wAAAAAAAAAA/////wEAAADa/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAFT/////wAAAAAAAAAA/"
+      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAMr/////wAAAAAAAAAA/"
+      "////wEAAANa/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
     }
   }
   Created		  "Fri Feb 08 15:09:51 2002"
@@ -65,9 +99,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Robot"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Nov 30 15:05:16 2016"
-  RTWModifiedTimeStamp	  402415671
-  ModelVersionFormat	  "1.%<AutoIncrement:368>"
+  LastModifiedDate	  "Thu Dec 01 16:07:47 2016"
+  RTWModifiedTimeStamp	  402509262
+  ModelVersionFormat	  "1.%<AutoIncrement:369>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -75,6 +109,10 @@ Model {
   WideLines		  off
   ShowLineDimensions	  off
   ShowPortDataTypes	  off
+  ShowEditTimeErrors	  on
+  ShowEditTimeWarnings	  on
+  ShowEditTimeAdvisorChecks off
+  ShowPortUnits		  off
   ShowDesignRanges	  off
   ShowLoopsOnError	  on
   IgnoreBidirectionalLines off
@@ -83,8 +121,10 @@ Model {
   ShowSignalResolutionIcons on
   ShowViewerIcons	  on
   SortedOrder		  off
+  VariantCondition	  off
   ExecutionContextIcon	  off
   ShowLinearizationAnnotations on
+  ShowVisualizeInsertedRTB on
   ShowMarkup		  on
   BlockNameDataTip	  off
   BlockParametersDataTip  off
@@ -92,6 +132,7 @@ Model {
   ToolBar		  on
   StatusBar		  on
   BrowserShowLibraryLinks off
+  FunctionConnectors	  off
   BrowserLookUnderMasks	  off
   SimulationMode	  "normal"
   PauseTimes		  "5"
@@ -108,7 +149,7 @@ Model {
   TryForcingSFcnDF	  off
   Object {
     $PropName		    "DataLoggingOverride"
-    $ObjectID		    6
+    $ObjectID		    7
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "cm_test"
     Array {
@@ -124,27 +165,6 @@ Model {
       PropName		      "logAsSpecifiedByModelsSSIDs_"
     }
   }
-  RecordCoverage	  off
-  CovPath		  "/"
-  CovSaveName		  "covdata"
-  CovMetricSettings	  "dw"
-  CovNameIncrementing	  off
-  CovHtmlReporting	  on
-  CovForceBlockReductionOff on
-  CovEnableCumulative	  on
-  covSaveCumulativeToWorkspaceVar on
-  CovSaveSingleToWorkspaceVar on
-  CovCumulativeVarName	  "covCumulativeData"
-  CovCumulativeReport	  off
-  CovReportOnPause	  on
-  CovModelRefEnable	  "Off"
-  CovExternalEMLEnable	  off
-  CovSFcnEnable		  off
-  CovBoundaryAbsTol	  0.000010
-  CovBoundaryRelTol	  0.010000
-  CovUseTimeInterval	  off
-  CovStartTime		  0
-  CovStopTime		  0
   ExtModeBatchMode	  off
   ExtModeEnableFloating	  on
   ExtModeTrigType	  "manual"
@@ -166,21 +186,24 @@ Model {
   ExtModeSkipDownloadWhenConnect off
   ExtModeLogAll		  on
   ExtModeAutoUpdateStatusClock off
-  BufferReuse		  on
   ShowModelReferenceBlockVersion off
   ShowModelReferenceBlockIO off
   Array {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      7
-      Version		      "1.14.3"
+      $ObjectID		      8
+      Version		      "1.16.5"
+      DisabledProps	      []
+      Description	      ""
       Array {
 	Type			"Handle"
-	Dimension		8
+	Dimension		9
 	Simulink.SolverCC {
-	  $ObjectID		  8
-	  Version		  "1.14.3"
+	  $ObjectID		  9
+	  Version		  "1.16.5"
+	  DisabledProps		  []
+	  Description		  ""
 	  StartTime		  "0.0"
 	  StopTime		  "inf"
 	  AbsTol		  "auto"
@@ -197,7 +220,7 @@ Model {
 	  MinStep		  "auto"
 	  MaxConsecutiveMinStep	  "1"
 	  RelTol		  "1e-3"
-	  SolverMode		  "Auto"
+	  EnableMultiTasking	  on
 	  EnableConcurrentExecution off
 	  ConcurrentTasks	  off
 	  Solver		  "ode45"
@@ -207,15 +230,20 @@ Model {
 	  ZeroCrossControl	  "UseLocalSettings"
 	  ZeroCrossAlgorithm	  "Nonadaptive"
 	  AlgebraicLoopSolver	  "TrustRegion"
+	  SolverInfoToggleStatus  off
+	  IsAutoAppliedInSIP	  off
 	  SolverResetMethod	  "Fast"
 	  PositivePriorityOrder	  off
 	  AutoInsertRateTranBlk	  off
 	  SampleTimeConstraint	  "Unconstrained"
 	  InsertRTBMode		  "Whenever possible"
+	  SampleTimeProperty	  []
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  9
-	  Version		  "1.14.3"
+	  $ObjectID		  10
+	  Version		  "1.16.5"
+	  DisabledProps		  []
+	  Description		  ""
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
@@ -234,6 +262,8 @@ Model {
 	  DSMLogging		  on
 	  InspectSignalLogs	  off
 	  VisualizeSimOutput	  on
+	  StreamToWorkspace	  off
+	  StreamVariableName	  "streamout"
 	  SaveTime		  on
 	  ReturnWorkspaceOutputs  off
 	  StateSaveName		  "xout"
@@ -245,24 +275,32 @@ Model {
 	  OutputTimes		  "[]"
 	  ReturnWorkspaceOutputsName "out"
 	  Refine		  "1"
+	  LoggingToFile		  off
+	  LoggingFileName	  "out.mat"
+	  LoggingIntervals	  "[-inf, inf]"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  10
-	  Version		  "1.14.3"
+	  $ObjectID		  11
+	  Version		  "1.16.5"
 	  Array {
 	    Type		    "Cell"
-	    Dimension		    4
+	    Dimension		    8
 	    Cell		    "ZeroExternalMemoryAtStartup"
 	    Cell		    "ZeroInternalMemoryAtStartup"
 	    Cell		    "NoFixptDivByZeroProtection"
 	    Cell		    "OptimizeModelRefInitCode"
+	    Cell		    "BooleansAsBitfields"
+	    Cell		    "PassReuseOutputArgsAs"
+	    Cell		    "PassReuseOutputArgsThreshold"
+	    Cell		    "UseSpecifiedMinMax"
 	    PropName		    "DisabledProps"
 	  }
+	  Description		  ""
 	  BlockReduction	  on
 	  BooleanDataType	  off
 	  ConditionallyExecuteInputs on
-	  InlineParams		  off
-	  UseDivisionForNetSlopeComputation "Off"
+	  DefaultParameterBehavior "Tunable"
+	  UseDivisionForNetSlopeComputation "off"
 	  UseFloatMulNetSlope	  off
 	  DefaultUnderspecifiedDataType	"double"
 	  UseSpecifiedMinMax	  off
@@ -273,38 +311,42 @@ Model {
 	  CachingGlobalReferences off
 	  GlobalBufferReuse	  on
 	  StrengthReduction	  off
+	  AdvancedOptControl	  ""
 	  ExpressionFolding	  on
 	  BooleansAsBitfields	  off
 	  BitfieldContainerType	  "uint_T"
 	  EnableMemcpy		  on
 	  MemcpyThreshold	  64
 	  PassReuseOutputArgsAs	  "Structure reference"
+	  PassReuseOutputArgsThreshold 12
 	  ExpressionDepthLimit	  2147483647
-	  FoldNonRolledExpr	  on
 	  LocalBlockOutputs	  on
 	  RollThreshold		  5
-	  SystemCodeInlineAuto	  off
 	  StateBitsets		  off
 	  DataBitsets		  off
 	  ActiveStateOutputEnumStorageType "Native Integer"
-	  UseTempVars		  off
 	  ZeroExternalMemoryAtStartup on
 	  ZeroInternalMemoryAtStartup on
 	  InitFltsAndDblsToZero	  on
 	  NoFixptDivByZeroProtection off
 	  EfficientFloat2IntCast  off
 	  EfficientMapNaN2IntZero on
-	  OptimizeModelRefInitCode off
 	  LifeSpan		  "inf"
 	  MaxStackSize		  "Inherit from target"
 	  BufferReusableBoundary  on
-	  SimCompilerOptimization "Off"
+	  SimCompilerOptimization "off"
 	  AccelVerboseBuild	  off
-	  ParallelExecutionInRapidAccelerator on
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  11
-	  Version		  "1.14.3"
+	  $ObjectID		  12
+	  Version		  "1.16.5"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    1
+	    Cell		    "UseOnlyExistingSharedCode"
+	    PropName		    "DisabledProps"
+	  }
+	  Description		  ""
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
@@ -331,7 +373,6 @@ Model {
 	  IgnoredZcDiagnostic	  "warning"
 	  SolverPrmCheckMsg	  "none"
 	  InheritedTsInSrcMsg	  "warning"
-	  DiscreteInheritContinuousMsg "warning"
 	  MultiTaskDSMMsg	  "warning"
 	  MultiTaskCondExecSysMsg "none"
 	  MultiTaskRateTransMsg	  "error"
@@ -353,23 +394,24 @@ Model {
 	  UnnecessaryDatatypeConvMsg "none"
 	  VectorMatrixConversionMsg "none"
 	  InvalidFcnCallConnMsg	  "error"
-	  FcnCallInpInsideContextMsg "UseLocalSettings"
+	  FcnCallInpInsideContextMsg "warning"
 	  SignalLabelMismatchMsg  "none"
 	  UnconnectedInputMsg	  "warning"
 	  UnconnectedOutputMsg	  "warning"
 	  UnconnectedLineMsg	  "warning"
+	  UseOnlyExistingSharedCode "error"
 	  SFcnCompatibilityMsg	  "none"
-	  FrameProcessingCompatibilityMsg "warning"
+	  FrameProcessingCompatibilityMsg "error"
 	  UniqueDataStoreMsg	  "none"
 	  BusObjectLabelMismatch  "warning"
 	  RootOutportRequireBusObject "warning"
 	  AssertControl		  "UseLocalSettings"
-	  EnableOverflowDetection off
+	  AllowSymbolicDim	  on
+	  RowMajorDimensionSupport off
 	  ModelReferenceIOMsg	  "none"
 	  ModelReferenceMultiInstanceNormalModeStructChecksumCheck "error"
 	  ModelReferenceVersionMismatchMessage "none"
 	  ModelReferenceIOMismatchMessage "none"
-	  ModelReferenceCSMismatchMessage "none"
 	  UnknownTsInhSupMsg	  "warning"
 	  ModelReferenceDataLoggingMessage "warning"
 	  ModelReferenceSymbolNameMessage "warning"
@@ -381,21 +423,33 @@ Model {
 	  StrictBusMsg		  "ErrorLevel1"
 	  BusNameAdapt		  "WarnAndRepair"
 	  NonBusSignalsTreatedAsBus "none"
-	  LoggingUnavailableSignals "error"
+	  SymbolicDimMinMaxWarning "warning"
+	  LossOfSymbolicDimsSimulationWarning "warning"
+	  LossOfSymbolicDimsCodeGenerationWarning "error"
 	  BlockIODiagnostic	  "none"
 	  SFUnusedDataAndEventsDiag "warning"
 	  SFUnexpectedBacktrackingDiag "warning"
 	  SFInvalidInputDataAccessInChartInitDiag "warning"
 	  SFNoUnconditionalDefaultTransitionDiag "warning"
 	  SFTransitionOutsideNaturalParentDiag "warning"
-	  SFUnconditionalTransitionShadowingDiag "warning"
+	  SFUnreachableExecutionPathDiag "warning"
 	  SFUndirectedBroadcastEventsDiag "warning"
 	  SFTransitionActionBeforeConditionDiag	"warning"
+	  SFOutputUsedAsStateInMooreChartDiag "error"
+	  SFTemporalDelaySmallerThanSampleTimeDiag "warning"
+	  SFSelfTransitionDiag	  "warning"
+	  SFExecutionAtInitializationDiag "none"
+	  SFMachineParentedDataDiag "warning"
 	  IntegerSaturationMsg	  "warning"
+	  AllowedUnitSystems	  "all"
+	  UnitsInconsistencyMsg	  "warning"
+	  AllowAutomaticUnitConversions	on
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  12
-	  Version		  "1.14.3"
+	  $ObjectID		  13
+	  Version		  "1.16.5"
+	  DisabledProps		  []
+	  Description		  ""
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
 	  ProdBitPerInt		  32
@@ -404,6 +458,8 @@ Model {
 	  ProdBitPerFloat	  32
 	  ProdBitPerDouble	  64
 	  ProdBitPerPointer	  32
+	  ProdBitPerSizeT	  32
+	  ProdBitPerPtrDiffT	  32
 	  ProdLargestAtomicInteger "Char"
 	  ProdLargestAtomicFloat  "None"
 	  ProdIntDivRoundTo	  "Undefined"
@@ -420,6 +476,8 @@ Model {
 	  TargetBitPerFloat	  32
 	  TargetBitPerDouble	  64
 	  TargetBitPerPointer	  32
+	  TargetBitPerSizeT	  32
+	  TargetBitPerPtrDiffT	  32
 	  TargetLargestAtomicInteger "Char"
 	  TargetLargestAtomicFloat "None"
 	  TargetShiftRightIntArith on
@@ -427,54 +485,84 @@ Model {
 	  TargetIntDivRoundTo	  "Undefined"
 	  TargetEndianess	  "Unspecified"
 	  TargetWordSize	  32
-	  TargetTypeEmulationWarnSuppressLevel 0
 	  TargetPreprocMaxBitsSint 32
 	  TargetPreprocMaxBitsUint 32
 	  TargetHWDeviceType	  "Specified"
 	  TargetUnknown		  on
 	  ProdEqTarget		  on
+	  UseEmbeddedCoderFeatures on
+	  UseSimulinkCoderFeatures on
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  13
-	  Version		  "1.14.3"
+	  $ObjectID		  14
+	  Version		  "1.16.5"
+	  DisabledProps		  []
+	  Description		  ""
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
+	  EnableRefExpFcnMdlSchedulingChecks on
 	  CheckModelReferenceTargetMessage "error"
 	  EnableParallelModelReferenceBuilds off
 	  ParallelModelReferenceErrorOnInvalidPool on
 	  ParallelModelReferenceMATLABWorkerInit "None"
 	  ModelReferenceNumInstancesAllowed "Multi"
 	  PropagateVarSize	  "Infer from blocks in model"
+	  ModelDependencies	  ""
 	  ModelReferencePassRootInputsByReference on
 	  ModelReferenceMinAlgLoopOccurrences off
 	  PropagateSignalLabelsOutOfModel off
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  14
-	  Version		  "1.14.3"
-	  SFSimEnableDebug	  on
-	  SFSimOverflowDetection  on
+	  $ObjectID		  15
+	  Version		  "1.16.5"
+	  DisabledProps		  []
+	  Description		  ""
+	  SimCustomSourceCode	  ""
+	  SimCustomHeaderCode	  ""
+	  SimCustomInitializer	  ""
+	  SimCustomTerminator	  ""
+	  SimReservedNameArray	  []
+	  SimUserSources	  ""
+	  SimUserIncludeDirs	  ""
+	  SimUserLibraries	  ""
+	  SimUserDefines	  ""
+	  SimCustomCompilerFlags  ""
+	  SimCustomLinkerFlags	  ""
 	  SFSimEcho		  on
-	  SimBlas		  on
 	  SimCtrlC		  on
-	  SimExtrinsic		  on
 	  SimIntegrity		  on
 	  SimUseLocalCustomCode	  off
 	  SimParseCustomCode	  on
 	  SimBuildMode		  "sf_incremental_build"
 	  SimGenImportedTypeDefs  off
+	  ModelFunctionsGlobalVisibility "on"
+	  CompileTimeRecursionLimit 50
+	  EnableRuntimeRecursion  on
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  15
-	  Version		  "1.14.3"
+	  $ObjectID		  16
+	  Version		  "1.16.5"
 	  Array {
 	    Type		    "Cell"
-	    Dimension		    1
+	    Dimension		    13
 	    Cell		    "IncludeHyperlinkInReport"
+	    Cell		    "GenerateTraceInfo"
+	    Cell		    "GenerateTraceReport"
+	    Cell		    "GenerateTraceReportSl"
+	    Cell		    "GenerateTraceReportSf"
+	    Cell		    "GenerateTraceReportEml"
+	    Cell		    "PortableWordSizes"
+	    Cell		    "GenerateWebview"
+	    Cell		    "GenerateCodeMetricsReport"
+	    Cell		    "GenerateCodeReplacementReport"
+	    Cell		    "GenerateMissedCodeReplacementReport"
+	    Cell		    "GenerateErtSFunction"
+	    Cell		    "CreateSILPILBlock"
 	    PropName		    "DisabledProps"
 	  }
 	  SystemTargetFile	  "grt.tlc"
+	  HardwareBoard		  "None"
 	  TLCOptions		  ""
 	  GenCodeOnly		  off
 	  MakeCommand		  "make_rtw"
@@ -488,15 +576,11 @@ Model {
 	  SaveLog		  off
 	  RTWVerbose		  on
 	  RetainRTWFile		  off
+	  RTWBuildHooks		  []
 	  ProfileTLC		  off
 	  TLCDebug		  off
 	  TLCCoverage		  off
 	  TLCAssert		  off
-	  ProcessScriptMode	  "Default"
-	  ConfigurationMode	  "Optimized"
-	  ProcessScript		  ""
-	  ConfigurationScript	  ""
-	  ConfigAtBuild		  off
 	  RTWUseLocalCustomCode	  off
 	  RTWUseSimCustomCode	  off
 	  CustomSourceCode	  ""
@@ -504,10 +588,13 @@ Model {
 	  CustomInclude		  ""
 	  CustomSource		  ""
 	  CustomLibrary		  ""
+	  CustomDefine		  ""
+	  CustomLAPACKCallback	  ""
 	  CustomInitializer	  ""
 	  CustomTerminator	  ""
 	  Toolchain		  "Automatically locate an installed toolchain"
 	  BuildConfiguration	  "Faster Builds"
+	  CustomToolchainOptions  []
 	  IncludeHyperlinkInReport off
 	  LaunchReport		  off
 	  PortableWordSizes	  off
@@ -519,31 +606,29 @@ Model {
 	  SILDebugging		  off
 	  TargetLang		  "C"
 	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
-	  IncludeERTFirstTime	  on
 	  GenerateTraceInfo	  off
 	  GenerateTraceReport	  off
 	  GenerateTraceReportSl	  off
 	  GenerateTraceReportSf	  off
 	  GenerateTraceReportEml  off
-	  GenerateCodeInfo	  off
 	  GenerateWebview	  off
 	  GenerateCodeMetricsReport off
 	  GenerateCodeReplacementReport	off
-	  RTWCompilerOptimization "Off"
+	  GenerateMissedCodeReplacementReport off
+	  RTWCompilerOptimization "off"
+	  ObjectivePriorities	  []
 	  RTWCustomCompilerOptimizations ""
 	  CheckMdlBeforeBuild	  "Off"
-	  CustomRebuildMode	  "OnUpdate"
-	  DataInitializer	  ""
 	  SharedConstantsCachingThreshold 1024
 	  Array {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      16
-	      Version		      "1.14.3"
+	      $ObjectID		      17
+	      Version		      "1.16.5"
 	      Array {
 		Type			"Cell"
-		Dimension		9
+		Dimension		25
 		Cell			"IgnoreCustomStorageClasses"
 		Cell			"InsertBlockDesc"
 		Cell			"SFDataObjDesc"
@@ -553,8 +638,26 @@ Model {
 		Cell			"ParamNamingRule"
 		Cell			"InlinedPrmAccess"
 		Cell			"CustomSymbolStr"
+		Cell			"IgnoreTestpoints"
+		Cell			"InsertPolySpaceComments"
+		Cell			"MATLABFcnDesc"
+		Cell			"InternalIdentifier"
+		Cell			"CustomSymbolStrGlobalVar"
+		Cell			"CustomSymbolStrType"
+		Cell			"CustomSymbolStrField"
+		Cell			"CustomSymbolStrFcn"
+		Cell			"CustomSymbolStrModelFcn"
+		Cell			"CustomSymbolStrFcnArg"
+		Cell			"CustomSymbolStrBlkIO"
+		Cell			"CustomSymbolStrTmpVar"
+		Cell			"CustomSymbolStrMacro"
+		Cell			"CustomSymbolStrUtil"
+		Cell			"CustomUserTokenString"
+		Cell			"ReqsInCode"
 		PropName		"DisabledProps"
 	      }
+	      Description	      ""
+	      Comment		      ""
 	      ForceParamTrailComments off
 	      GenerateComments	      on
 	      CommentStyle	      "Auto"
@@ -576,31 +679,39 @@ Model {
 	      CustomSymbolStrType     "$N$R$M_T"
 	      CustomSymbolStrField    "$N$M"
 	      CustomSymbolStrFcn      "$R$N$M$F"
+	      CustomSymbolStrModelFcn "$R$N"
 	      CustomSymbolStrFcnArg   "rt$I$N$M"
 	      CustomSymbolStrBlkIO    "rtb_$N$M"
 	      CustomSymbolStrTmpVar   "$N$M"
 	      CustomSymbolStrMacro    "$R$N$M"
 	      CustomSymbolStrUtil     "$N$C"
+	      CustomUserTokenString   ""
+	      CustomCommentsFcn	      ""
 	      DefineNamingRule	      "None"
+	      DefineNamingFcn	      ""
 	      ParamNamingRule	      "None"
+	      ParamNamingFcn	      ""
 	      SignalNamingRule	      "None"
+	      SignalNamingFcn	      ""
 	      InsertBlockDesc	      off
 	      InsertPolySpaceComments off
 	      SimulinkBlockComments   on
 	      MATLABSourceComments    off
 	      EnableCustomComments    off
+	      InternalIdentifierFile  ""
 	      InternalIdentifier      "Shortened"
 	      InlinedPrmAccess	      "Literals"
 	      ReqsInCode	      off
 	      UseSimReservedNames     off
+	      ReservedNameArray	      []
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      17
-	      Version		      "1.14.3"
+	      $ObjectID		      18
+	      Version		      "1.16.5"
 	      Array {
 		Type			"Cell"
-		Dimension		10
+		Dimension		15
 		Cell			"IncludeMdlTerminateFcn"
 		Cell			"SupportNonInlinedSFcns"
 		Cell			"SuppressErrorStatus"
@@ -611,8 +722,14 @@ Model {
 		Cell			"GenerateAllocFcn"
 		Cell			"SupportComplex"
 		Cell			"SupportAbsoluteTime"
+		Cell			"RemoveResetFunc"
+		Cell			"ExistingSharedCode"
+		Cell			"GenerateTestInterfaces"
+		Cell			"ModelStepFunctionPrototypeControlCompliant"
+		Cell			"RemoveDisableFunc"
 		PropName		"DisabledProps"
 	      }
+	      Description	      ""
 	      TargetFcnLib	      "ansi_tfl_tmw.mat"
 	      TargetLibSuffix	      ""
 	      TargetPreCompLibLocation ""
@@ -624,6 +741,8 @@ Model {
 	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
+	      InferredTypesCompatibility off
+	      ExistingSharedCode      ""
 	      GenerateSampleERTMain   off
 	      GenerateTestInterfaces  off
 	      ModelReferenceCompliant on
@@ -648,17 +767,21 @@ Model {
 	      PurelyIntegerCode	      off
 	      SupportContinuousTime   on
 	      SupportNonInlinedSFcns  on
+	      RemoveDisableFunc	      off
+	      RemoveResetFunc	      off
 	      SupportVariableSizeSignals off
-	      EnableShiftOperators    on
 	      ParenthesesLevel	      "Nominal"
 	      CastingMode	      "Nominal"
 	      MATLABClassNameForMDSCustomization "Simulink.SoftwareTarget.GRTCustomization"
 	      ModelStepFunctionPrototypeControlCompliant off
 	      CPPClassGenCompliant    on
 	      AutosarCompliant	      off
+	      MDXCompliant	      off
 	      GRTInterface	      on
 	      GenerateAllocFcn	      off
+	      UseToolchainInfoCompliant	on
 	      GenerateSharedConstants on
+	      CoderGroups	      []
 	      UseMalloc		      off
 	      ExtMode		      off
 	      ExtModeStaticAlloc      off
@@ -666,6 +789,7 @@ Model {
 	      ExtModeStaticAllocSize  1000000
 	      ExtModeTransport	      0
 	      ExtModeMexFile	      "ext_comm"
+	      ExtModeMexArgs	      ""
 	      ExtModeIntrfLevel	      "Level1"
 	      RTWCAPISignals	      off
 	      RTWCAPIParams	      off
@@ -677,9 +801,49 @@ Model {
 	    PropName		    "Components"
 	  }
 	}
+	SlCovCC.ConfigComp {
+	  $ObjectID		  19
+	  Version		  "1.16.5"
+	  DisabledProps		  []
+	  Description		  "Simulink Coverage Configuration Component"
+	  Name			  "Simulink Coverage"
+	  CovEnable		  off
+	  CovScope		  "EntireSystem"
+	  CovIncludeTopModel	  on
+	  RecordCoverage	  off
+	  CovPath		  "/"
+	  CovSaveName		  "covdata"
+	  CovCompData		  ""
+	  CovMetricSettings	  "dw"
+	  CovFilter		  ""
+	  CovHTMLOptions	  ""
+	  CovNameIncrementing	  off
+	  CovHtmlReporting	  on
+	  CovForceBlockReductionOff on
+	  CovEnableCumulative	  on
+	  CovSaveCumulativeToWorkspaceVar on
+	  CovSaveSingleToWorkspaceVar on
+	  CovCumulativeVarName	  "covCumulativeData"
+	  CovCumulativeReport	  off
+	  CovSaveOutputData	  on
+	  CovOutputDir		  "slcov_output/$ModelName$"
+	  CovDataFileName	  "$ModelName$_cvdata"
+	  CovShowResultsExplorer  on
+	  CovReportOnPause	  on
+	  CovModelRefEnable	  "off"
+	  CovModelRefExcluded	  ""
+	  CovExternalEMLEnable	  off
+	  CovSFcnEnable		  off
+	  CovBoundaryAbsTol	  1e-05
+	  CovBoundaryRelTol	  0.01
+	  CovUseTimeInterval	  off
+	  CovStartTime		  0
+	  CovStopTime		  0
+	}
 	PropName		"Components"
       }
       Name		      "Configuration"
+      ExtraOptions	      ""
       CurrentDlgPage	      "Solver"
       ConfigPrmDlgPosition     [ 517, 260, 1403, 918 ] 
     }
@@ -687,11 +851,11 @@ Model {
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    7
+    $ObjectID		    8
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    18
+    $ObjectID		    20
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -734,7 +898,7 @@ Model {
   MaskDefaults {
     SelfModifiable	    "off"
     IconFrame		    "on"
-    IconOpaque		    "on"
+    IconOpaque		    "opaque"
     RunInitForIconRedraw    "off"
     IconRotate		    "none"
     PortRotate		    "default"
@@ -753,11 +917,9 @@ Model {
   BlockParameterDefaults {
     Block {
       BlockType		      BusCreator
-      Inputs		      "4"
       DisplayOption	      "none"
       OutDataTypeStr	      "Inherit: auto"
       NonVirtualBus	      off
-      InheritFromInputs	      on
     }
     Block {
       BlockType		      Demux
@@ -792,6 +954,7 @@ Model {
       OutDataTypeStr	      "Inherit: auto"
       LockScale		      off
       BusOutputAsStruct	      off
+      Unit		      "inherit"
       PortDimensions	      "-1"
       VarSizeSig	      "Inherit"
       SampleTime	      "-1"
@@ -817,11 +980,13 @@ Model {
       OutDataTypeStr	      "Inherit: auto"
       LockScale		      off
       BusOutputAsStruct	      off
+      Unit		      "inherit"
       PortDimensions	      "-1"
       VarSizeSig	      "Inherit"
       SampleTime	      "-1"
       SignalType	      "auto"
       SamplingMode	      "auto"
+      EnsureOutportIsVirtual  off
       SourceOfInitialOutputValue "Dialog"
       OutputWhenDisabled      "held"
       InitialOutput	      "[]"
@@ -831,25 +996,11 @@ Model {
       FunctionName	      "system"
       SFunctionModules	      "''"
       PortCounts	      "[]"
-      SFunctionDeploymentMode off
     }
     Block {
       BlockType		      Scope
-      ModelBased	      off
-      TickLabels	      "OneTimeTick"
-      ZoomMode		      "on"
-      Grid		      "on"
-      TimeRange		      "auto"
-      YMin		      "-5"
-      YMax		      "5"
-      SaveToWorkspace	      off
-      SaveName		      "ScopeData"
-      DataFormat	      "Array"
-      LimitDataPoints	      on
-      MaxDataPoints	      "5000"
-      Decimation	      "1"
-      SampleInput	      off
-      SampleTime	      "-1"
+      DefaultConfigurationName "Simulink.scopes.TimeScopeBlockCfg"
+      Floating		      off
     }
     Block {
       BlockType		      Stop
@@ -862,7 +1013,6 @@ Model {
       TreatAsAtomicUnit	      off
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
-      CheckFcnCallInpInsideContextMsg off
       SystemSampleTime	      "-1"
       RTWSystemCode	      "Auto"
       RTWFcnNameOpts	      "Auto"
@@ -881,9 +1031,11 @@ Model {
       Opaque		      off
       MaskHideContents	      off
       SFBlockType	      "NONE"
-      Variant		      off
       GeneratePreprocessorConditionals off
+      PropagateVariantConditions off
+      TreatAsGroupedWhenPropagatingVariantConditions on
       ContentPreviewEnabled   off
+      IsWebBlock	      off
     }
     Block {
       BlockType		      Sum
@@ -907,7 +1059,7 @@ Model {
   }
   System {
     Name		    "cm_test"
-    Location		    [1911, -309, 3609, 759]
+    Location		    [1912, -231, 3608, 835]
     Open		    off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -932,15 +1084,16 @@ Model {
       BackgroundColor	      "lightBlue"
       TreatAsAtomicUnit	      on
       RequestExecContextInheritance off
+      Variant		      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		19
+	$ObjectID		21
 	$ClassName		"Simulink.Mask"
 	Display			"image(imread('CarMaker4SLss.bmp'));"
       }
       System {
 	Name			"CarMaker"
-	Location		[1911, -309, 3609, 759]
+	Location		[1912, -231, 3608, 835]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -962,6 +1115,7 @@ Model {
 	  ZOrder		  -1
 	  BackgroundColor	  "green"
 	  RequestExecContextInheritance	off
+	  Variant		  off
 	  System {
 	    Name		    "CM_FIRST"
 	    Location		    [73, 377, 722, 859]
@@ -995,6 +1149,7 @@ Model {
 	      ShowName		      off
 	      Inputs		      "9"
 	      DisplayOption	      "bar"
+	      InheritFromInputs	      on
 	    }
 	    Block {
 	      BlockType		      Demux
@@ -1071,7 +1226,9 @@ Model {
 	      BackgroundColor	      "green"
 	      FunctionName	      "CM_Sfun"
 	      Parameters	      "'Environment'"
+	      SFunctionDeploymentMode off
 	      EnableBusSupport	      off
+	      SFcnIsStateOwnerBlock   off
 	    }
 	    Block {
 	      BlockType		      S-Function
@@ -1083,7 +1240,9 @@ Model {
 	      BackgroundColor	      "green"
 	      FunctionName	      "CM_Sfun"
 	      Parameters	      "'IoIn'"
+	      SFunctionDeploymentMode off
 	      EnableBusSupport	      off
+	      SFcnIsStateOwnerBlock   off
 	    }
 	    Block {
 	      BlockType		      Outport
@@ -1230,6 +1389,7 @@ Model {
 	  ZOrder		  -2
 	  BackgroundColor	  "green"
 	  RequestExecContextInheritance	off
+	  Variant		  off
 	  System {
 	    Name		    "CM_LAST"
 	    Location		    [361, 241, 928, 606]
@@ -1263,7 +1423,9 @@ Model {
 	      BackgroundColor	      "green"
 	      FunctionName	      "CM_Sfun"
 	      Parameters	      "'CM_User'"
+	      SFunctionDeploymentMode off
 	      EnableBusSupport	      off
+	      SFcnIsStateOwnerBlock   off
 	    }
 	    Block {
 	      BlockType		      S-Function
@@ -1275,7 +1437,9 @@ Model {
 	      BackgroundColor	      "green"
 	      FunctionName	      "CM_Sfun"
 	      Parameters	      "'IoOut'"
+	      SFunctionDeploymentMode off
 	      EnableBusSupport	      off
+	      SFcnIsStateOwnerBlock   off
 	    }
 	    Block {
 	      BlockType		      Outport
@@ -1320,6 +1484,7 @@ Model {
 	  ZOrder		  -3
 	  BackgroundColor	  "green"
 	  RequestExecContextInheritance	off
+	  Variant		  off
 	  System {
 	    Name		    "DrivMan"
 	    Location		    [125, 282, 770, 1018]
@@ -1361,6 +1526,7 @@ Model {
 	      ZOrder		      -3
 	      ShowName		      off
 	      Inputs		      "17"
+	      InheritFromInputs	      on
 	    }
 	    Block {
 	      BlockType		      Demux
@@ -1485,7 +1651,9 @@ Model {
 	      BackgroundColor	      "green"
 	      FunctionName	      "CM_Sfun"
 	      Parameters	      "'DrivMan'"
+	      SFunctionDeploymentMode off
 	      EnableBusSupport	      off
+	      SFcnIsStateOwnerBlock   off
 	    }
 	    Block {
 	      BlockType		      Outport
@@ -1696,7 +1864,7 @@ Model {
 	      SID		      "515"
 	      Name		      "There's rarely a reason to override DrivMan signals.\nUse the VehicleControl interface for this pu"
 	      "rpose."
-	      Position		      [372, 500, 613, 528]
+	      Position		      [252, 486, 482, 514]
 	      InternalMargins	      [0, 0, 0, 0]
 	      FixedHeight	      off
 	      FixedWidth	      off
@@ -1722,6 +1890,7 @@ Model {
 	  BackgroundColor	  "green"
 	  TreatAsAtomicUnit	  on
 	  RequestExecContextInheritance	off
+	  Variant		  off
 	  System {
 	    Name		    "IPG Vehicle"
 	    Location		    [336, 449, 1112, 1075]
@@ -1808,6 +1977,7 @@ Model {
 	      ZOrder		      -8
 	      BackgroundColor	      "green"
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"Brake"
 		Location		[297, 355, 1299, 1050]
@@ -1859,7 +2029,9 @@ Model {
 		  BackgroundColor	  "green"
 		  FunctionName		  "CM_Sfun"
 		  Parameters		  "'Brake'"
+		  SFunctionDeploymentMode off
 		  EnableBusSupport	  off
+		  SFcnIsStateOwnerBlock	  off
 		  Port {
 		    PortNumber		    1
 		    Name		    "Sync"
@@ -1877,7 +2049,9 @@ Model {
 		  BackgroundColor	  "green"
 		  FunctionName		  "CM_Sfun"
 		  Parameters		  "'BrakeUpd'"
+		  SFunctionDeploymentMode off
 		  EnableBusSupport	  off
+		  SFcnIsStateOwnerBlock	  off
 		}
 		Block {
 		  BlockType		  BusCreator
@@ -1888,6 +2062,7 @@ Model {
 		  ZOrder		  -6
 		  ShowName		  off
 		  Inputs		  "12"
+		  InheritFromInputs	  on
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -1897,6 +2072,7 @@ Model {
 		  Position		  [715, 240, 810, 280]
 		  ZOrder		  -7
 		  RequestExecContextInheritance	off
+		  Variant		  off
 		  System {
 		    Name		    "CreateBus Vhcl.Wheel.PT"
 		    Location		    [1081, 291, 1648, 796]
@@ -1929,6 +2105,7 @@ Model {
 		    ZOrder		    -2
 		    ShowName		    off
 		    Inputs		    "16"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    Demux
@@ -2481,7 +2658,7 @@ Model {
 		Annotation {
 		  SID			  "516"
 		  Name			  "<Your model here>"
-		  Position		  [536, 294, 628, 309]
+		  Position		  [490, 287, 576, 302]
 		  InternalMargins	  [0, 0, 0, 0]
 		  FixedHeight		  off
 		  FixedWidth		  off
@@ -2491,7 +2668,7 @@ Model {
 		  SID			  "517"
 		  Name			  "When replacing the entire braking system,\nbe sure to add '-disablebrake' to the command line arguments\n"
 		  "in the CarMaker Model Configuration block."
-		  Position		  [211, 453, 502, 494]
+		  Position		  [66, 433, 340, 474]
 		  InternalMargins	  [0, 0, 0, 0]
 		  FixedHeight		  off
 		  FixedWidth		  off
@@ -2508,6 +2685,7 @@ Model {
 	      ZOrder		      -9
 	      BackgroundColor	      "green"
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"CarAndTrailer"
 		Location		[69, 626, 1314, 1221]
@@ -2567,6 +2745,7 @@ Model {
 		  ZOrder		  -5
 		  BackgroundColor	  "green"
 		  RequestExecContextInheritance	off
+		  Variant		  off
 		  System {
 		    Name		    "CarAndTrailerUpd"
 		    Location		    [347, 291, 1026, 952]
@@ -2687,7 +2866,9 @@ Model {
 		    BackgroundColor	    "green"
 		    FunctionName	    "CM_Sfun"
 		    Parameters		    "'CarAndTrUpd'"
+		    SFunctionDeploymentMode off
 		    EnableBusSupport	    off
+		    SFcnIsStateOwnerBlock   off
 		    }
 		    Block {
 		    BlockType		    SubSystem
@@ -2697,6 +2878,7 @@ Model {
 		    Position		    [325, 295, 465, 335]
 		    ZOrder		    -12
 		    RequestExecContextInheritance off
+		    Variant		    off
 		    System {
 		    Name		    "CreateBus Brake.IF.In"
 		    Location		    [139, 209, 712, 633]
@@ -2729,6 +2911,7 @@ Model {
 		    ZOrder		    -2
 		    ShowName		    off
 		    Inputs		    "9"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    Demux
@@ -3021,6 +3204,7 @@ Model {
 		  ZOrder		  -6
 		  BackgroundColor	  "green"
 		  RequestExecContextInheritance	off
+		  Variant		  off
 		  System {
 		    Name		    "Forces"
 		    Location		    [284, 163, 759, 982]
@@ -3125,6 +3309,7 @@ Model {
 		    ZOrder		    -10
 		    BackgroundColor	    "green"
 		    RequestExecContextInheritance off
+		    Variant		    off
 		    System {
 		    Name		    "External Suspension Forces"
 		    Location		    [150, 132, 866, 862]
@@ -3192,7 +3377,9 @@ Model {
 		    Position		    [560, 161, 565, 239]
 		    ZOrder		    -6
 		    ShowName		    off
+		    Inputs		    "4"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    BusCreator
@@ -3202,7 +3389,9 @@ Model {
 		    Position		    [560, 61, 565, 139]
 		    ZOrder		    -7
 		    ShowName		    off
+		    Inputs		    "4"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    BusCreator
@@ -3212,7 +3401,9 @@ Model {
 		    Position		    [560, 261, 565, 339]
 		    ZOrder		    -8
 		    ShowName		    off
+		    Inputs		    "4"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    BusCreator
@@ -3222,7 +3413,9 @@ Model {
 		    Position		    [560, 361, 565, 439]
 		    ZOrder		    -9
 		    ShowName		    off
+		    Inputs		    "4"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    Demux
@@ -4110,7 +4303,7 @@ Model {
 		    SID			    "518"
 		    Name		    "The FSpring/FDamp/FStabi/FBuf outputs of this subsystem will be\nactive if the SuspExtFrcs.Kind entry"
 		    " in the vehicle parameter file\nis either not present or is empty or has the value \"CM4SL\"."
-		    Position		    [330, 487, 639, 528]
+		    Position		    [176, 467, 469, 508]
 		    InternalMargins	    [0, 0, 0, 0]
 		    FixedHeight		    off
 		    FixedWidth		    off
@@ -4119,7 +4312,7 @@ Model {
 		    Annotation {
 		    SID			    "519"
 		    Name		    "Insert your suspension forces model here."
-		    Position		    [326, 249, 520, 264]
+		    Position		    [229, 242, 416, 257]
 		    InternalMargins	    [0, 0, 0, 0]
 		    FixedHeight		    off
 		    FixedWidth		    off
@@ -4137,6 +4330,7 @@ Model {
 		    ZOrder		    -11
 		    BackgroundColor	    "green"
 		    RequestExecContextInheritance off
+		    Variant		    off
 		    System {
 		    Name		    "Tires"
 		    Location		    [348, 52, 1072, 1102]
@@ -4206,6 +4400,7 @@ Model {
 		    ShowName		    off
 		    Inputs		    "11"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    BusCreator
@@ -4217,6 +4412,7 @@ Model {
 		    ShowName		    off
 		    Inputs		    "11"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    BusCreator
@@ -4228,6 +4424,7 @@ Model {
 		    ShowName		    off
 		    Inputs		    "11"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    BusCreator
@@ -4239,6 +4436,7 @@ Model {
 		    ShowName		    off
 		    Inputs		    "11"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    Demux
@@ -4461,6 +4659,7 @@ Model {
 		    ZOrder		    -14
 		    BackgroundColor	    "magenta"
 		    RequestExecContextInheritance off
+		    Variant		    off
 		    Port {
 		    PortNumber		    1
 		    Name		    "Tire_Out Slp"
@@ -5001,7 +5200,7 @@ Model {
 		    Annotation {
 		    SID			    "520"
 		    Name		    "Insert your tire model here."
-		    Position		    [221, 194, 349, 209]
+		    Position		    [157, 187, 278, 202]
 		    InternalMargins	    [0, 0, 0, 0]
 		    FixedHeight		    off
 		    FixedWidth		    off
@@ -5019,6 +5218,7 @@ Model {
 		    ZOrder		    -15
 		    BackgroundColor	    "magenta"
 		    RequestExecContextInheritance off
+		    Variant		    off
 		    Port {
 		    PortNumber		    1
 		    Name		    "Tire_Out Slp"
@@ -5559,7 +5759,7 @@ Model {
 		    Annotation {
 		    SID			    "521"
 		    Name		    "Insert your tire model here."
-		    Position		    [221, 194, 349, 209]
+		    Position		    [157, 187, 278, 202]
 		    InternalMargins	    [0, 0, 0, 0]
 		    FixedHeight		    off
 		    FixedWidth		    off
@@ -5577,6 +5777,7 @@ Model {
 		    ZOrder		    -16
 		    BackgroundColor	    "magenta"
 		    RequestExecContextInheritance off
+		    Variant		    off
 		    Port {
 		    PortNumber		    1
 		    Name		    "Tire_Out Slp"
@@ -6117,7 +6318,7 @@ Model {
 		    Annotation {
 		    SID			    "522"
 		    Name		    "Insert your tire model here."
-		    Position		    [221, 194, 349, 209]
+		    Position		    [157, 187, 278, 202]
 		    InternalMargins	    [0, 0, 0, 0]
 		    FixedHeight		    off
 		    FixedWidth		    off
@@ -6135,6 +6336,7 @@ Model {
 		    ZOrder		    -17
 		    BackgroundColor	    "magenta"
 		    RequestExecContextInheritance off
+		    Variant		    off
 		    Port {
 		    PortNumber		    1
 		    Name		    "Tire_Out Slp"
@@ -6675,7 +6877,7 @@ Model {
 		    Annotation {
 		    SID			    "523"
 		    Name		    "Insert your tire model here."
-		    Position		    [221, 194, 349, 209]
+		    Position		    [157, 187, 278, 202]
 		    InternalMargins	    [0, 0, 0, 0]
 		    FixedHeight		    off
 		    FixedWidth		    off
@@ -7480,7 +7682,7 @@ Model {
 		    SID			    "524"
 		    Name		    "The TireXX_Out signals will only be used if FileIdent is \"CarMaker-Tire-CM4SL\" in the tire paramete"
 		    "r file!\nAn example parameter file can be found in Data/Tire/DT_CM4SL_UserTire."
-		    Position		    [352, 807, 848, 835]
+		    Position		    [104, 793, 567, 821]
 		    InternalMargins	    [0, 0, 0, 0]
 		    FixedHeight		    off
 		    FixedWidth		    off
@@ -7497,6 +7699,7 @@ Model {
 		    ZOrder		    -12
 		    BackgroundColor	    "green"
 		    RequestExecContextInheritance off
+		    Variant		    off
 		    System {
 		    Name		    "Vehicle Forces"
 		    Location		    [324, 52, 1010, 1047]
@@ -7530,6 +7733,7 @@ Model {
 		    ShowName		    off
 		    Inputs		    "12"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    BusCreator
@@ -7541,6 +7745,7 @@ Model {
 		    ShowName		    off
 		    Inputs		    "13"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    BusCreator
@@ -7552,6 +7757,7 @@ Model {
 		    ShowName		    off
 		    Inputs		    "16"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    Demux
@@ -7842,7 +8048,9 @@ Model {
 		    BackgroundColor	    "green"
 		    FunctionName	    "CM_Sfun"
 		    Parameters		    "'Forces'"
+		    SFunctionDeploymentMode off
 		    EnableBusSupport	    off
+		    SFcnIsStateOwnerBlock   off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -8602,6 +8810,7 @@ Model {
 		  ZOrder		  -8
 		  BackgroundColor	  "green"
 		  RequestExecContextInheritance	off
+		  Variant		  off
 		  System {
 		    Name		    "Kinematics"
 		    Location		    [112, 118, 560, 706]
@@ -8644,7 +8853,9 @@ Model {
 		    BackgroundColor	    "green"
 		    FunctionName	    "CM_Sfun"
 		    Parameters		    "'Kinematics'"
+		    SFunctionDeploymentMode off
 		    EnableBusSupport	    off
+		    SFcnIsStateOwnerBlock   off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -8814,6 +9025,7 @@ Model {
 		  ZOrder		  -9
 		  BackgroundColor	  "green"
 		  RequestExecContextInheritance	off
+		  Variant		  off
 		  System {
 		    Name		    "Kinetics"
 		    Location		    [347, 52, 923, 949]
@@ -8944,7 +9156,9 @@ Model {
 		    Position		    [385, 506, 390, 559]
 		    ZOrder		    -13
 		    ShowName		    off
+		    Inputs		    "4"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    BusCreator
@@ -8956,6 +9170,7 @@ Model {
 		    ShowName		    off
 		    Inputs		    "12"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    BusCreator
@@ -8967,6 +9182,7 @@ Model {
 		    ShowName		    off
 		    Inputs		    "6"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    BusCreator
@@ -8978,6 +9194,7 @@ Model {
 		    ShowName		    off
 		    Inputs		    "6"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    BusCreator
@@ -8987,7 +9204,9 @@ Model {
 		    Position		    [385, 571, 390, 634]
 		    ZOrder		    -17
 		    ShowName		    off
+		    Inputs		    "4"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    Demux
@@ -9244,7 +9463,9 @@ Model {
 		    BackgroundColor	    "green"
 		    FunctionName	    "CM_Sfun"
 		    Parameters		    "'Kinetics'"
+		    SFunctionDeploymentMode off
 		    EnableBusSupport	    off
+		    SFcnIsStateOwnerBlock   off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -9765,6 +9986,7 @@ Model {
 		  ZOrder		  -10
 		  BackgroundColor	  "green"
 		  RequestExecContextInheritance	off
+		  Variant		  off
 		  System {
 		    Name		    "Steering"
 		    Location		    [300, 168, 1025, 944]
@@ -9807,6 +10029,7 @@ Model {
 		    ShowName		    off
 		    Inputs		    "16"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    BusCreator
@@ -9816,7 +10039,9 @@ Model {
 		    Position		    [435, 392, 440, 453]
 		    ZOrder		    -4
 		    ShowName		    off
+		    Inputs		    "4"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    Port {
 		    PortNumber		    1
 		    Name		    "Steer IF (in)"
@@ -9965,7 +10190,9 @@ Model {
 		    BackgroundColor	    "green"
 		    FunctionName	    "CM_Sfun"
 		    Parameters		    "'Steering'"
+		    SFunctionDeploymentMode off
 		    EnableBusSupport	    off
+		    SFcnIsStateOwnerBlock   off
 		    }
 		    Block {
 		    BlockType		    Terminator
@@ -10221,7 +10448,7 @@ Model {
 		    SID			    "525"
 		    Name		    "When replacing the entire steering system,\nbe sure to add '-disablesteering' to the command line arg"
 		    "uments\nin the CarMaker Model Configuration block."
-		    Position		    [196, 508, 499, 549]
+		    Position		    [45, 488, 330, 529]
 		    InternalMargins	    [0, 0, 0, 0]
 		    FixedHeight		    off
 		    FixedWidth		    off
@@ -10254,6 +10481,7 @@ Model {
 		  ZOrder		  -13
 		  BackgroundColor	  "green"
 		  RequestExecContextInheritance	off
+		  Variant		  off
 		  System {
 		    Name		    "Trailer"
 		    Location		    [91, 288, 772, 1179]
@@ -10330,6 +10558,7 @@ Model {
 		    Position		    [245, 579, 385, 621]
 		    ZOrder		    -7
 		    RequestExecContextInheritance off
+		    Variant		    off
 		    System {
 		    Name		    "CreateBus Car.Hitch.FrcTrq"
 		    Location		    [235, 636, 654, 1034]
@@ -10363,6 +10592,7 @@ Model {
 		    ShowName		    off
 		    Inputs		    "6"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    Demux
@@ -10497,6 +10727,7 @@ Model {
 		    Position		    [245, 189, 385, 231]
 		    ZOrder		    -8
 		    RequestExecContextInheritance off
+		    Variant		    off
 		    System {
 		    Name		    "CreateBus Vhcl.Motion"
 		    Location		    [661, 652, 1072, 1191]
@@ -10814,6 +11045,7 @@ Model {
 		    Position		    [245, 254, 385, 296]
 		    ZOrder		    -9
 		    RequestExecContextInheritance off
+		    Variant		    off
 		    System {
 		    Name		    "CreateBus Vhcl.PoI"
 		    Location		    [854, 438, 1261, 1007]
@@ -10847,6 +11079,7 @@ Model {
 		    ShowName		    off
 		    Inputs		    "18"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    Demux
@@ -11163,6 +11396,7 @@ Model {
 		    Position		    [245, 124, 385, 166]
 		    ZOrder		    -10
 		    RequestExecContextInheritance off
+		    Variant		    off
 		    System {
 		    Name		    "CreateBus Vhcl.Steering"
 		    Location		    [448, 685, 853, 1074]
@@ -11194,7 +11428,9 @@ Model {
 		    Position		    [230, 68, 235, 137]
 		    ZOrder		    -2
 		    ShowName		    off
+		    Inputs		    "4"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    Demux
@@ -11299,6 +11535,7 @@ Model {
 		    Position		    [245, 319, 385, 361]
 		    ZOrder		    -11
 		    RequestExecContextInheritance off
+		    Variant		    off
 		    Port {
 		    PortNumber		    1
 		    Name		    "Vhcl.Wheel.FL"
@@ -11338,6 +11575,7 @@ Model {
 		    ShowName		    off
 		    Inputs		    "14"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    Demux
@@ -11594,6 +11832,7 @@ Model {
 		    Position		    [245, 382, 385, 428]
 		    ZOrder		    -12
 		    RequestExecContextInheritance off
+		    Variant		    off
 		    Port {
 		    PortNumber		    1
 		    Name		    "Vhcl.Wheel.FR"
@@ -11633,6 +11872,7 @@ Model {
 		    ShowName		    off
 		    Inputs		    "14"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    Demux
@@ -11887,6 +12127,7 @@ Model {
 		    Position		    [245, 448, 385, 492]
 		    ZOrder		    -13
 		    RequestExecContextInheritance off
+		    Variant		    off
 		    Port {
 		    PortNumber		    1
 		    Name		    "Vhcl.Wheel.RL"
@@ -11926,6 +12167,7 @@ Model {
 		    ShowName		    off
 		    Inputs		    "14"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    Demux
@@ -12180,6 +12422,7 @@ Model {
 		    Position		    [245, 514, 385, 556]
 		    ZOrder		    -14
 		    RequestExecContextInheritance off
+		    Variant		    off
 		    Port {
 		    PortNumber		    1
 		    Name		    "Vhcl.Wheel.RR"
@@ -12219,6 +12462,7 @@ Model {
 		    ShowName		    off
 		    Inputs		    "14"
 		    DisplayOption	    "bar"
+		    InheritFromInputs	    on
 		    }
 		    Block {
 		    BlockType		    Demux
@@ -12475,7 +12719,9 @@ Model {
 		    BackgroundColor	    "green"
 		    FunctionName	    "CM_Sfun"
 		    Parameters		    "'Trailer'"
+		    SFunctionDeploymentMode off
 		    EnableBusSupport	    off
+		    SFcnIsStateOwnerBlock   off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -13078,6 +13324,7 @@ Model {
 	      ZOrder		      -10
 	      BackgroundColor	      "green"
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"PowerTrain"
 		Location		[56, 177, 981, 957]
@@ -13128,6 +13375,7 @@ Model {
 		  ZOrder		  -4
 		  ShowName		  off
 		  Inputs		  "40"
+		  InheritFromInputs	  on
 		}
 		Block {
 		  BlockType		  Demux
@@ -13390,7 +13638,9 @@ Model {
 		  BackgroundColor	  "green"
 		  FunctionName		  "CM_Sfun"
 		  Parameters		  "'PowerTrain'"
+		  SFunctionDeploymentMode off
 		  EnableBusSupport	  off
+		  SFcnIsStateOwnerBlock	  off
 		  Port {
 		    PortNumber		    1
 		    Name		    "Sync"
@@ -13408,7 +13658,9 @@ Model {
 		  BackgroundColor	  "green"
 		  FunctionName		  "CM_Sfun"
 		  Parameters		  "'PowerTrainUpd'"
+		  SFunctionDeploymentMode off
 		  EnableBusSupport	  off
+		  SFcnIsStateOwnerBlock	  off
 		}
 		Block {
 		  BlockType		  Outport
@@ -13836,7 +14088,7 @@ Model {
 		  SID			  "526"
 		  Name			  "When replacing the entire powertrain,\nbe sure to add '-disablepowertrain' to the command line arguments"
 		  "\nin the CarMaker Model Configuration block."
-		  Position		  [171, 443, 486, 484]
+		  Position		  [14, 423, 310, 464]
 		  InternalMargins	  [0, 0, 0, 0]
 		  FixedHeight		  off
 		  FixedWidth		  off
@@ -13845,7 +14097,7 @@ Model {
 		Annotation {
 		  SID			  "527"
 		  Name			  "<Your model here>"
-		  Position		  [576, 189, 668, 204]
+		  Position		  [530, 182, 616, 197]
 		  InternalMargins	  [0, 0, 0, 0]
 		  FixedHeight		  off
 		  FixedWidth		  off
@@ -14000,9 +14252,10 @@ Model {
 	  ZOrder		  -7
 	  BackgroundColor	  "green"
 	  RequestExecContextInheritance	off
+	  Variant		  off
 	  System {
 	    Name		    "VehicleControl"
-	    Location		    [1911, -309, 3609, 759]
+	    Location		    [1912, -231, 3608, 835]
 	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -14040,6 +14293,7 @@ Model {
 	      Position		      [160, 695, 235, 715]
 	      ZOrder		      4
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"Accelerometers"
 		Location		[1911, -309, 3609, 759]
@@ -14115,30 +14369,14 @@ Model {
 		  Ports			  [1]
 		  Position		  [195, 29, 225, 61]
 		  ZOrder		  -5
-		  Floating		  off
-		  Location		  [1586, 85, 1910, 352]
-		  Open			  off
+		  ScopeSpecificationString "C++SS(StrPVP('Location','[1586, 85, 1910, 352]'),StrPVP('Open','off'),MxPVP('AxesTitles'"
+		  ",24,'struct(''axes1'',''%<SignalLabel>'')'),MxPVP('ScopeGraphics',28,'struct(''FigureColor'',''[0.5 0.5 0.5]'',''A"
+		  "xesColor'',''[0 0 0]'',''AxesTickColor'',''[1 1 1]'',''LineColors'',''[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]'',''Li"
+		  "neStyles'',''-|-|-|-|-|-'',''LineWidths'',''[0.5 0.5 0.5 0.5 0.5 0.5]'',''MarkerStyles'',''none|none|none|none|non"
+		  "e|none'')'),StrPVP('ShowLegends','off'),StrPVP('SaveName','ScopeData1'),StrPVP('DataFormat','StructureWithTime'),S"
+		  "trPVP('LimitDataPoints','off'),StrPVP('BlockParamSampleTime','0'),StrPVP('ScrollMode','off'),StrPVP('Decimation','"
+		  "1'),StrPVP('BlockParamSampleInput','off'))"
 		  NumInputPorts		  "1"
-		  List {
-		    ListType		    AxesTitles
-		    axes1		    "%<SignalLabel>"
-		  }
-		  List {
-		    ListType		    ScopeGraphics
-		    FigureColor		    "[0.5 0.5 0.5]"
-		    AxesColor		    "[0 0 0]"
-		    AxesTickColor	    "[1 1 1]"
-		    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-		    LineStyles		    "-|-|-|-|-|-"
-		    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
-		    MarkerStyles	    "none|none|none|none|none|none"
-		  }
-		  ShowLegends		  off
-		  SaveName		  "ScopeData1"
-		  DataFormat		  "StructureWithTime"
-		  LimitDataPoints	  off
-		  SampleTime		  "0"
-		  ScrollMode		  off
 		}
 		Block {
 		  BlockType		  Scope
@@ -14147,28 +14385,14 @@ Model {
 		  Ports			  [1]
 		  Position		  [195, 89, 225, 121]
 		  ZOrder		  -6
-		  Floating		  off
-		  Location		  [1165, 119, 1910, 636]
-		  Open			  off
+		  ScopeSpecificationString "C++SS(StrPVP('Location','[1165, 119, 1910, 636]'),StrPVP('Open','off'),MxPVP('AxesTitles"
+		  "',24,'struct(''axes1'',''%<SignalLabel>'')'),MxPVP('ScopeGraphics',28,'struct(''FigureColor'',''[0.5 0.5 0.5]'',''"
+		  "AxesColor'',''[0 0 0]'',''AxesTickColor'',''[1 1 1]'',''LineColors'',''[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]'',''L"
+		  "ineStyles'',''-|-|-|-|-|-'',''LineWidths'',''[0.5 0.5 0.5 0.5 0.5 0.5]'',''MarkerStyles'',''none|none|none|none|no"
+		  "ne|none'')'),StrPVP('ShowLegends','off'),StrPVP('DataFormat','StructureWithTime'),StrPVP('BlockParamSampleTime','0"
+		  "'),StrPVP('ScrollMode','off'),StrPVP('LimitDataPoints','on'),StrPVP('Decimation','1'),StrPVP('BlockParamSampleInpu"
+		  "t','off'))"
 		  NumInputPorts		  "1"
-		  List {
-		    ListType		    AxesTitles
-		    axes1		    "%<SignalLabel>"
-		  }
-		  List {
-		    ListType		    ScopeGraphics
-		    FigureColor		    "[0.5 0.5 0.5]"
-		    AxesColor		    "[0 0 0]"
-		    AxesTickColor	    "[1 1 1]"
-		    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-		    LineStyles		    "-|-|-|-|-|-"
-		    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
-		    MarkerStyles	    "none|none|none|none|none|none"
-		  }
-		  ShowLegends		  off
-		  DataFormat		  "StructureWithTime"
-		  SampleTime		  "0"
-		  ScrollMode		  off
 		}
 		Block {
 		  BlockType		  Scope
@@ -14177,30 +14401,14 @@ Model {
 		  Ports			  [1]
 		  Position		  [195, 144, 225, 176]
 		  ZOrder		  -7
-		  Floating		  off
-		  Location		  [2369, -70, 3019, 337]
-		  Open			  off
+		  ScopeSpecificationString "C++SS(StrPVP('Location','[2369, -70, 3019, 337]'),StrPVP('Open','off'),MxPVP('AxesTitles"
+		  "',24,'struct(''axes1'',''%<SignalLabel>'')'),MxPVP('ScopeGraphics',28,'struct(''FigureColor'',''[0.5 0.5 0.5]'',''"
+		  "AxesColor'',''[0 0 0]'',''AxesTickColor'',''[1 1 1]'',''LineColors'',''[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]'',''L"
+		  "ineStyles'',''-|-|-|-|-|-'',''LineWidths'',''[0.5 0.5 0.5 0.5 0.5 0.5]'',''MarkerStyles'',''none|none|none|none|no"
+		  "ne|none'')'),StrPVP('ShowLegends','off'),StrPVP('SaveName','ScopeData2'),StrPVP('DataFormat','StructureWithTime'),"
+		  "StrPVP('LimitDataPoints','off'),StrPVP('BlockParamSampleTime','0'),StrPVP('ScrollMode','off'),StrPVP('Decimation',"
+		  "'1'),StrPVP('BlockParamSampleInput','off'))"
 		  NumInputPorts		  "1"
-		  List {
-		    ListType		    AxesTitles
-		    axes1		    "%<SignalLabel>"
-		  }
-		  List {
-		    ListType		    ScopeGraphics
-		    FigureColor		    "[0.5 0.5 0.5]"
-		    AxesColor		    "[0 0 0]"
-		    AxesTickColor	    "[1 1 1]"
-		    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-		    LineStyles		    "-|-|-|-|-|-"
-		    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
-		    MarkerStyles	    "none|none|none|none|none|none"
-		  }
-		  ShowLegends		  off
-		  SaveName		  "ScopeData2"
-		  DataFormat		  "StructureWithTime"
-		  LimitDataPoints	  off
-		  SampleTime		  "0"
-		  ScrollMode		  off
 		}
 		Block {
 		  BlockType		  Outport
@@ -14279,6 +14487,7 @@ Model {
 	      ShowName		      off
 	      Inputs		      "2"
 	      DisplayOption	      "bar"
+	      InheritFromInputs	      on
 	    }
 	    Block {
 	      BlockType		      SubSystem
@@ -14288,6 +14497,7 @@ Model {
 	      Position		      [650, 294, 790, 336]
 	      ZOrder		      -4
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"CreateBus Vhcl.Misc"
 		Location		[596, 690, 1049, 1221]
@@ -14321,6 +14531,7 @@ Model {
 		  ShowName		  off
 		  Inputs		  "11"
 		  DisplayOption		  "bar"
+		  InheritFromInputs	  on
 		}
 		Block {
 		  BlockType		  Demux
@@ -14530,6 +14741,7 @@ Model {
 	      Position		      [650, 229, 790, 271]
 	      ZOrder		      -5
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"CreateBus Vhcl.Wheel.In"
 		Location		[259, 454, 745, 1063]
@@ -14563,6 +14775,7 @@ Model {
 		  ShowName		  off
 		  Inputs		  "12"
 		  DisplayOption		  "bar"
+		  InheritFromInputs	  on
 		}
 		Block {
 		  BlockType		  Demux
@@ -14787,6 +15000,7 @@ Model {
 	      Position		      [225, 342, 380, 388]
 	      ZOrder		      -6
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"CreateBus VhclCtrl"
 		Location		[1911, -309, 3609, 759]
@@ -14819,6 +15033,7 @@ Model {
 		  ZOrder		  -2
 		  ShowName		  off
 		  Inputs		  "29"
+		  InheritFromInputs	  on
 		}
 		Block {
 		  BlockType		  Demux
@@ -15298,6 +15513,7 @@ Model {
 	      Position		      [650, 426, 790, 464]
 	      ZOrder		      -7
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"CreateBus VhclCtrl.PT"
 		Location		[205, 52, 841, 496]
@@ -15330,6 +15546,7 @@ Model {
 		  ZOrder		  -2
 		  ShowName		  off
 		  Inputs		  "11"
+		  InheritFromInputs	  on
 		}
 		Block {
 		  BlockType		  Demux
@@ -15539,6 +15756,7 @@ Model {
 	      Position		      [650, 165, 790, 205]
 	      ZOrder		      -8
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"CreateBus VhclCtrl.Steering"
 		Location		[402, 263, 863, 706]
@@ -15572,6 +15790,7 @@ Model {
 		  ShowName		  off
 		  Inputs		  "5"
 		  DisplayOption		  "bar"
+		  InheritFromInputs	  on
 		}
 		Block {
 		  BlockType		  Demux
@@ -15716,6 +15935,7 @@ Model {
 	      Position		      [155, 656, 235, 674]
 	      ZOrder		      3
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"Gyroscopes"
 		Location		[1911, -309, 3609, 759]
@@ -15791,29 +16011,20 @@ Model {
 		  Ports			  [1]
 		  Position		  [195, 29, 225, 61]
 		  ZOrder		  -5
-		  Floating		  off
-		  Location		  [425, 497, 749, 764]
-		  Open			  on
+		  ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extmgr"
+		  ".Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('Sourc"
+		  "es','WiredSimulink',true,'DataLoggingVariableName','ScopeData1','DataLoggingSaveFormat','StructureWithTime','DataL"
+		  "oggingLimitDataPoints',true,'DataLoggingDecimation','1','DataLoggingDecimateData',true),extmgr.Configuration('Visu"
+		  "als','Time Domain',true,'DisplayPropertyDefaults',struct('MinYLimReal','-10','MaxYLimReal','10','YLabelReal','','M"
+		  "inYLimMag','0','MaxYLimMag','10','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColo"
+		  "r',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.06666666666"
+		  "66667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019"
+		  "608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.6509803"
+		  "92156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNam"
+		  "es',{{[]}},'ShowContent',true,'Placement',1)),extmgr.Configuration('Tools','Plot Navigation',true),extmgr.Configur"
+		  "ation('Tools','Measurements',true,'Version','2016b')),'Version','2016b','Location',[425 497 749 764],'VisibleAtMod"
+		  "elOpen','on')"
 		  NumInputPorts		  "1"
-		  List {
-		    ListType		    AxesTitles
-		    axes1		    "%<SignalLabel>"
-		  }
-		  List {
-		    ListType		    ScopeGraphics
-		    FigureColor		    "[0.5 0.5 0.5]"
-		    AxesColor		    "[0 0 0]"
-		    AxesTickColor	    "[1 1 1]"
-		    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-		    LineStyles		    "-|-|-|-|-|-"
-		    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
-		    MarkerStyles	    "none|none|none|none|none|none"
-		  }
-		  ShowLegends		  off
-		  SaveName		  "ScopeData1"
-		  DataFormat		  "StructureWithTime"
-		  SampleTime		  "0"
-		  ScrollMode		  off
 		}
 		Block {
 		  BlockType		  Scope
@@ -15822,28 +16033,14 @@ Model {
 		  Ports			  [1]
 		  Position		  [195, 89, 225, 121]
 		  ZOrder		  -6
-		  Floating		  off
-		  Location		  [1205, 60, 1910, 550]
-		  Open			  off
+		  ScopeSpecificationString "C++SS(StrPVP('Location','[1205, 60, 1910, 550]'),StrPVP('Open','off'),MxPVP('AxesTitles'"
+		  ",24,'struct(''axes1'',''%<SignalLabel>'')'),MxPVP('ScopeGraphics',28,'struct(''FigureColor'',''[0.5 0.5 0.5]'',''A"
+		  "xesColor'',''[0 0 0]'',''AxesTickColor'',''[1 1 1]'',''LineColors'',''[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]'',''Li"
+		  "neStyles'',''-|-|-|-|-|-'',''LineWidths'',''[0.5 0.5 0.5 0.5 0.5 0.5]'',''MarkerStyles'',''none|none|none|none|non"
+		  "e|none'')'),StrPVP('ShowLegends','off'),StrPVP('DataFormat','StructureWithTime'),StrPVP('BlockParamSampleTime','0'"
+		  "),StrPVP('ScrollMode','off'),StrPVP('LimitDataPoints','on'),StrPVP('Decimation','1'),StrPVP('BlockParamSampleInput"
+		  "','off'))"
 		  NumInputPorts		  "1"
-		  List {
-		    ListType		    AxesTitles
-		    axes1		    "%<SignalLabel>"
-		  }
-		  List {
-		    ListType		    ScopeGraphics
-		    FigureColor		    "[0.5 0.5 0.5]"
-		    AxesColor		    "[0 0 0]"
-		    AxesTickColor	    "[1 1 1]"
-		    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-		    LineStyles		    "-|-|-|-|-|-"
-		    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
-		    MarkerStyles	    "none|none|none|none|none|none"
-		  }
-		  ShowLegends		  off
-		  DataFormat		  "StructureWithTime"
-		  SampleTime		  "0"
-		  ScrollMode		  off
 		}
 		Block {
 		  BlockType		  Scope
@@ -15852,32 +16049,14 @@ Model {
 		  Ports			  [1]
 		  Position		  [195, 144, 225, 176]
 		  ZOrder		  -7
-		  Floating		  off
-		  Location		  [761, 331, 1213, 677]
-		  Open			  off
+		  ScopeSpecificationString "C++SS(StrPVP('Location','[761, 331, 1213, 677]'),StrPVP('Open','off'),StrPVP('ZoomMode',"
+		  "'xonly'),MxPVP('AxesTitles',24,'struct(''axes1'',''%<SignalLabel>'')'),MxPVP('ScopeGraphics',28,'struct(''FigureCo"
+		  "lor'',''[0.5 0.5 0.5]'',''AxesColor'',''[0 0 0]'',''AxesTickColor'',''[1 1 1]'',''LineColors'',''[1 1 0;1 0 1;0 1 "
+		  "1;1 0 0;0 1 0;0 0 1]'',''LineStyles'',''-|-|-|-|-|-'',''LineWidths'',''[0.5 0.5 0.5 0.5 0.5 0.5]'',''MarkerStyles'"
+		  "',''none|none|none|none|none|none'')'),StrPVP('ShowLegends','off'),StrPVP('YMin','0.15'),StrPVP('YMax','0.55'),Str"
+		  "PVP('SaveName','ScopeData2'),StrPVP('DataFormat','StructureWithTime'),StrPVP('BlockParamSampleTime','0'),StrPVP('S"
+		  "crollMode','off'),StrPVP('LimitDataPoints','on'),StrPVP('Decimation','1'),StrPVP('BlockParamSampleInput','off'))"
 		  NumInputPorts		  "1"
-		  ZoomMode		  "xonly"
-		  List {
-		    ListType		    AxesTitles
-		    axes1		    "%<SignalLabel>"
-		  }
-		  List {
-		    ListType		    ScopeGraphics
-		    FigureColor		    "[0.5 0.5 0.5]"
-		    AxesColor		    "[0 0 0]"
-		    AxesTickColor	    "[1 1 1]"
-		    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-		    LineStyles		    "-|-|-|-|-|-"
-		    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
-		    MarkerStyles	    "none|none|none|none|none|none"
-		  }
-		  ShowLegends		  off
-		  YMin			  "0.15"
-		  YMax			  "0.55"
-		  SaveName		  "ScopeData2"
-		  DataFormat		  "StructureWithTime"
-		  SampleTime		  "0"
-		  ScrollMode		  off
 		}
 		Block {
 		  BlockType		  Outport
@@ -15951,9 +16130,10 @@ Model {
 	      Name		      "Steering angle"
 	      SID		      "552"
 	      Ports		      [0, 3]
-	      Position		      [150, 843, 245, 917]
+	      Position		      [140, 848, 235, 922]
 	      ZOrder		      2
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"Steering angle"
 		Location		[1911, -309, 3609, 759]
@@ -15977,6 +16157,7 @@ Model {
 		  Position		  [305, 119, 385, 171]
 		  ZOrder		  6
 		  RequestExecContextInheritance	off
+		  Variant		  off
 		  System {
 		    Name		    "Mean of 2 values"
 		    Location		    [1911, -309, 3609, 759]
@@ -16126,17 +16307,11 @@ Model {
 		  Ports			  [1]
 		  Position		  [330, 44, 360, 76]
 		  ZOrder		  11
-		  Floating		  off
-		  Location		  [188, 365, 512, 604]
-		  Open			  off
+		  ScopeSpecificationString "C++SS(StrPVP('Location','[188, 365, 512, 604]'),StrPVP('Open','off'),MxPVP('AxesTitles',"
+		  "24,'struct(''axes1'',''%<SignalLabel>'')'),StrPVP('ShowLegends','off'),StrPVP('SaveName','ScopeData4'),StrPVP('Scr"
+		  "ollMode','off'),StrPVP('LimitDataPoints','on'),StrPVP('DataFormat','Array'),StrPVP('Decimation','1'),StrPVP('Block"
+		  "ParamSampleInput','off'))"
 		  NumInputPorts		  "1"
-		  List {
-		    ListType		    AxesTitles
-		    axes1		    "%<SignalLabel>"
-		  }
-		  ShowLegends		  off
-		  SaveName		  "ScopeData4"
-		  ScrollMode		  off
 		}
 		Block {
 		  BlockType		  Outport
@@ -16234,7 +16409,9 @@ Model {
 	      BackgroundColor	      "green"
 	      FunctionName	      "CM_Sfun"
 	      Parameters	      "'VehicleControl'"
+	      SFunctionDeploymentMode off
 	      EnableBusSupport	      off
+	      SFcnIsStateOwnerBlock   off
 	    }
 	    Block {
 	      BlockType		      S-Function
@@ -16246,7 +16423,9 @@ Model {
 	      BackgroundColor	      "green"
 	      FunctionName	      "CM_Sfun"
 	      Parameters	      "'VehicleControlUpd'"
+	      SFunctionDeploymentMode off
 	      EnableBusSupport	      off
+	      SFcnIsStateOwnerBlock   off
 	    }
 	    Block {
 	      BlockType		      SubSystem
@@ -16256,6 +16435,7 @@ Model {
 	      Position		      [160, 791, 235, 809]
 	      ZOrder		      5
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"lateral position to lane center"
 		Location		[1911, -309, 3609, 759]
@@ -16278,31 +16458,14 @@ Model {
 		  Ports			  [1]
 		  Position		  [220, 14, 250, 46]
 		  ZOrder		  -2
-		  Floating		  off
-		  Location		  [2798, 14, 3122, 281]
-		  Open			  off
+		  ScopeSpecificationString "C++SS(StrPVP('Location','[2798, 14, 3122, 281]'),StrPVP('Open','off'),MxPVP('AxesTitles'"
+		  ",24,'struct(''axes1'',''%<SignalLabel>'')'),MxPVP('ScopeGraphics',28,'struct(''FigureColor'',''[0.5 0.5 0.5]'',''A"
+		  "xesColor'',''[0 0 0]'',''AxesTickColor'',''[1 1 1]'',''LineColors'',''[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]'',''Li"
+		  "neStyles'',''-|-|-|-|-|-'',''LineWidths'',''[0.5 0.5 0.5 0.5 0.5 0.5]'',''MarkerStyles'',''none|none|none|none|non"
+		  "e|none'')'),StrPVP('ShowLegends','off'),StrPVP('YMin','-1'),StrPVP('SaveName','ScopeData3'),StrPVP('DataFormat','S"
+		  "tructureWithTime'),StrPVP('LimitDataPoints','off'),StrPVP('BlockParamSampleTime','0'),StrPVP('ScrollMode','off'),S"
+		  "trPVP('Decimation','1'),StrPVP('BlockParamSampleInput','off'))"
 		  NumInputPorts		  "1"
-		  List {
-		    ListType		    AxesTitles
-		    axes1		    "%<SignalLabel>"
-		  }
-		  List {
-		    ListType		    ScopeGraphics
-		    FigureColor		    "[0.5 0.5 0.5]"
-		    AxesColor		    "[0 0 0]"
-		    AxesTickColor	    "[1 1 1]"
-		    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-		    LineStyles		    "-|-|-|-|-|-"
-		    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
-		    MarkerStyles	    "none|none|none|none|none|none"
-		  }
-		  ShowLegends		  off
-		  YMin			  "-1"
-		  SaveName		  "ScopeData3"
-		  DataFormat		  "StructureWithTime"
-		  LimitDataPoints	  off
-		  SampleTime		  "0"
-		  ScrollMode		  off
 		}
 		Block {
 		  BlockType		  Reference
@@ -16353,6 +16516,7 @@ Model {
 	      Position		      [160, 741, 235, 759]
 	      ZOrder		      1
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"lateral position to road center"
 		Location		[1911, -309, 3609, 759]
@@ -16375,31 +16539,26 @@ Model {
 		  Ports			  [1]
 		  Position		  [220, 14, 250, 46]
 		  ZOrder		  -2
-		  Floating		  off
-		  Location		  [2521, 129, 2845, 396]
-		  Open			  on
+		  ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extmgr"
+		  ".Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('Sourc"
+		  "es','WiredSimulink',true,'DataLoggingVariableName','ScopeData3','DataLoggingSaveFormat','StructureWithTime','DataL"
+		  "oggingDecimation','1','DataLoggingDecimateData',true),extmgr.Configuration('Visuals','Time Domain',true,'Serialize"
+		  "dDisplays',{struct('MinYLimReal','-1','MaxYLimReal','10','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','Legen"
+		  "dVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509"
+		  "803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764"
+		  "706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.71764705882352"
+		  "9 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','Lin"
+		  "ePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placemen"
+		  "t',1)},'DisplayPropertyDefaults',struct('MinYLimReal','-1','MaxYLimReal','10','YLabelReal','','MinYLimMag','0','Ma"
+		  "xYLimMag','10','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTi"
+		  "ckColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039"
+		  "215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.074509803921"
+		  "5686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title',"
+		  "'%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowCo"
+		  "ntent',true,'Placement',1)),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false),extmgr.Configu"
+		  "ration('Tools','Measurements',true,'Version','2016b')),'Version','2016b','Location',[2521 129 2845 396],'VisibleAt"
+		  "ModelOpen','on')"
 		  NumInputPorts		  "1"
-		  List {
-		    ListType		    AxesTitles
-		    axes1		    "%<SignalLabel>"
-		  }
-		  List {
-		    ListType		    ScopeGraphics
-		    FigureColor		    "[0.5 0.5 0.5]"
-		    AxesColor		    "[0 0 0]"
-		    AxesTickColor	    "[1 1 1]"
-		    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-		    LineStyles		    "-|-|-|-|-|-"
-		    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
-		    MarkerStyles	    "none|none|none|none|none|none"
-		  }
-		  ShowLegends		  off
-		  YMin			  "-1"
-		  SaveName		  "ScopeData3"
-		  DataFormat		  "StructureWithTime"
-		  LimitDataPoints	  off
-		  SampleTime		  "0"
-		  ScrollMode		  off
 		}
 		Block {
 		  BlockType		  Reference
@@ -16644,7 +16803,7 @@ Model {
 	    Annotation {
 	      SID		      "528"
 	      Name		      "<Your model here>"
-	      Position		      [451, 389, 543, 404]
+	      Position		      [405, 382, 491, 397]
 	      InternalMargins	      [0, 0, 0, 0]
 	      FixedHeight	      off
 	      FixedWidth	      off
@@ -16655,7 +16814,7 @@ Model {
 	      Name		      "When implementing a vehicle control model,\nbe sure to add '-disablevehiclecontrol' to the command"
 	      " line arguments\nin the CarMaker Model Configuration block.\nOtherwise your model will possibly not see the ori"
 	      "ginal DrivMan signals\non its inputs, but those of a currently activated C-coded vehicle control model instead."
-	      Position		      [336, 558, 740, 625]
+	      Position		      [134, 525, 513, 592]
 	      InternalMargins	      [0, 0, 0, 0]
 	      FixedHeight	      off
 	      FixedWidth	      off
@@ -16790,9 +16949,10 @@ Model {
       LoadFcn		      "if ~length(which('cmcmd')), cmenv; end"
       OpenFcn		      "cmblockmagic('gui_fix_display'); CM_Simulink"
       RequestExecContextInheritance off
+      Variant		      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		20
+	$ObjectID		22
 	$ClassName		"Simulink.Mask"
 	Display			"image(imread('CarMakerGUI.bmp'));"
       }
@@ -16819,14 +16979,16 @@ Model {
 	  Position		  [70, 33, 130, 72]
 	  ZOrder		  -1
 	  FunctionName		  "cm_gui"
+	  SFunctionDeploymentMode off
 	  EnableBusSupport	  off
+	  SFcnIsStateOwnerBlock	  off
 	}
       }
     }
     Annotation {
       SID		      "530"
       Name		      "Generic Car Model"
-      Position		      [185, 45, 347, 69]
+      Position		      [104, 33, 256, 56]
       InternalMargins	      [0, 0, 0, 0]
       FixedHeight	      off
       FixedWidth	      off
@@ -16838,7 +17000,7 @@ Model {
     Annotation {
       SID		      "531"
       Name		      "You may use this model as a starting point."
-      Position		      [197, 72, 400, 87]
+      Position		      [96, 65, 287, 80]
       InternalMargins	      [0, 0, 0, 0]
       FixedHeight	      off
       FixedWidth	      off
@@ -16848,7 +17010,7 @@ Model {
       SID		      "532"
       Name		      "It already contains everything to run a simple CarMaker simulation.\nBuild your Simulink model arou"
       "nd it."
-      Position		      [197, 92, 512, 120]
+      Position		      [40, 78, 337, 106]
       InternalMargins	      [0, 0, 0, 0]
       FixedHeight	      off
       FixedWidth	      off
@@ -16857,7 +17019,7 @@ Model {
     Annotation {
       SID		      "533"
       Name		      "CarMaker 5.0.2"
-      Position		      [185, 16, 258, 31]
+      Position		      [149, 9, 219, 24]
       InternalMargins	      [0, 0, 0, 0]
       FixedHeight	      off
       FixedWidth	      off
