@@ -31,5 +31,8 @@
 
 %% Simulink model parameters
 
+% de-activates CM driver
+autonomous_driving = true;
+
 % discrete steering angle switch
 discrete_steer_angle = true;
