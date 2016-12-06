@@ -27,12 +27,27 @@
 % the GUI.
 
 % steering model (steering ratio or full steering rack representation)
-% model = 
+% steer_model = 
+
+% The steering mode is given by the parameter "Steer.SteerBy", accessible
+% via a "Read CM Dict" block.
+% Output: 
+% - 1 : angle steering
+% - 2 : torque steering (when using Dynamic Steer Ratio or Pfeffer Model)
 
 %% Simulink model parameters
 
-% de-activates CM driver
+
+
+% de-activates CM driver (if at false, no autonomous driving possible)
 autonomous_driving = true;
 
+% activates lateral control
+lateral_control = true; % (TO IMPLEMENT)
+
+% activates longitudinal control
+longit_control = true; % (TO IMPLEMENT)
+
 % discrete steering angle switch
-discrete_steer_angle = true;
+discrete_steer_angle = true; % (TO IMPLEMENT IN SIMULINK)
+
