@@ -4,7 +4,12 @@
 %
 %
 % author: Charles Philippe (charles.philippe@cranfield.ac.uk)
-
+%
+%
+%
+% The root path when executing this script must be the folder it is in (the
+% src4sl folder)
+%
 %% Constants
 
 % declaration
@@ -14,6 +19,10 @@ global r2d
 % value
 d2r = pi / 180;
 r2d = 1 / d2r;
+
+vhcl_infofile = '..//Data//Vehicle//Tesla_S_adapted';
+testrun_infofile = '..//Data//TestRun//testrun_building';
+
 
 %% Declaration of the structures of parameters
 
@@ -29,8 +38,19 @@ RP = struct;
 
 %% CarMaker Parameters needed before Simulink execution
 
+% infofile handle for vehicle parametrization
+ifid_vhcl = ifile_new();
+not_ok = ifile_read(ifid_vhcl, vhcl_infofile);
+
+% infofile handle for testrun (environment, roads, ...)
+ifid_testrun = ifile_new();
+not_ok2 = ifile_read(ifid_testrun, testrun_infofile);
+
+% get RP sensor name
+% RP.name = ifile_getstr(ifid_vhcl, 'RPSensor.0.name');
+
 % sampling frequency of CarMaker (Hz)
-Fs_CM = 1000; 
+Fs_CM = 1000;
 
 
 
@@ -98,14 +118,15 @@ IMU.gyro.res = d2r * 0.2;
 % can be emulated by a "Free Space sensor" in CarMaker
 
 
-% road property sensor -------------------
+% Road Property sensor -------------------
 % CAUTION: this is an emulated sensor by CarMaker. It gives perfect
 % information and does not correspond to reality. On the vipalabs, the
 % lateral errors information is given by a fusion of the infos of the real
 % sensors (image, gps, imu, ...).
+% sampling frequency of RP sensor
 RP.Fs = 50;
-
-
+% distance of preview point (m)
+RP.preview_dist = 10;
 
 
 %% Simulink model switches
@@ -155,9 +176,29 @@ IMU.gyro.npts = IMU.gyro.range(2) - IMU.gyro.range(1) / IMU.gyro.res;
 % boundary points for quantization
 IMU.gyro.bnd_pts = linspace(IMU.gyro.range(1), ...
 IMU.gyro.range(2), IMU.gyro.npts);
+% nb samples of delay on non downsampled signal
+IMU.offset = IMU.latency / (IMU.Fs^-1);
 
 % RP sensor
 dnsp_factor_lateral_err = 1;
+
+
+%% Parameters to be modified in the CarMaker infofiles
+% these parameters are defined in this script and need to be send to
+% CarMaker through the configuration files).
+
+% sets desired preview distance for RP sensor
+ifile_setstr(ifid_vhcl, 'RPSensor.0.PreviewDist', RP.preview_dist);
+
+
+
+% writes the contents of the handle to the file
+ifile_write(ifid_vhcl, vhcl_infofile);
+
+% destroys the infofile handles
+ifile_delete(ifid_vhcl);
+ifile_delete(ifid_testrun);
+
 
 
 
