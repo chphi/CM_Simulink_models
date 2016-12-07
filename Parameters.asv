@@ -18,9 +18,8 @@ r2d = 1 / d2r;
 %% Declaration of the structures of parameters
 
 % sensors
-% steering angle sensor
 steer_sensor = struct;
-% inertial measurement unit with gyros and accelerometers
+% inertial measurement unit with gyros 
 IMU = struct;
 % road property sensor
 RP = struct;
@@ -30,7 +29,7 @@ RP = struct;
 %% CarMaker Parameters needed before Simulink execution
 
 % sampling frequency of CarMaker (Hz)
-Fs_CM = 1000; 
+Fs_CM = 100; 
 
 
 
