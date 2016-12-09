@@ -9,7 +9,10 @@
 %
 % The root path when executing this script must be the folder it is in (the
 % src4sl folder)
-%
+
+
+clc; clear;
+
 %% Constants
 
 % declaration
@@ -33,21 +36,33 @@ steer_sensor = struct;
 IMU = struct;
 % road property sensor
 RP = struct;
+% ctrl law definition
+ctr_law = struct;
 
 
 
-%% CarMaker Parameters needed before Simulink execution
+%% CarMaker Parameters reading
+% parameters needing to be known before Simulink execution. Read from
+% CarMaker infofiles.
 
 % infofile handle for vehicle parametrization
 ifid_vhcl = ifile_new();
-not_ok = ifile_read(ifid_vhcl, vhcl_infofile);
+ifile_read(ifid_vhcl, vhcl_infofile);
 
 % infofile handle for testrun (environment, roads, ...)
 ifid_testrun = ifile_new();
-not_ok2 = ifile_read(ifid_testrun, testrun_infofile);
+ifile_read(ifid_testrun, testrun_infofile);
+
+% get steering mode
+% steer_mode = ifile_getstr(ifid_vhcl, 'Steering.Kind');
 
 % get RP sensor name
-% RP.name = ifile_getstr(ifid_vhcl, 'RPSensor.0.name');
+RP.name = ifile_getstr(ifid_vhcl, 'RPSensor.0.name');
+% checks name 
+% if not 'RP00', simulink won't get the signals
+if not(strcmp(RP.name, 'RP00'))
+    throw(MException('RP:BadName','Wrong RPSensor name. Should be RP00'))
+end
 
 % sampling frequency of CarMaker (Hz)
 Fs_CM = 1000;
@@ -60,14 +75,14 @@ Fs_CM = 1000;
 % purposes. However other things (such as the road) have to be defined in
 % the GUI.
 
-% steering model (steering ratio or full steering rack representation)
-% steer_model = 
+% desired steering model (refer to CarMaker doc for more information)
+% The steering mode corresponds to the parameter "Steering.Kind" in the
+% vehicle infofile (cf relevant infofile handle). Only the angle mode has
+% been implememented at the moment.
+% - angle steering : "GenAngle 1"
+% - torque steering : "GenTorque 1"
+steer_mode = 'GenAngle 1';
 
-% The steering mode is given by the parameter "Steer.SteerBy", accessible
-% via a "Read CM Dict" block.
-% Output: 
-% 1 : angle steering
-% 2 : torque steering (when using Dynamic Steer Ratio or Pfeffer Model)
 
 
 %% Sensor parameters
@@ -126,12 +141,11 @@ IMU.gyro.res = d2r * 0.2;
 % sampling frequency of RP sensor
 RP.Fs = 50;
 % distance of preview point (m)
+% as of now, the preview point distance is fixed for a simulation
 RP.preview_dist = 10;
 
 
 %% Simulink model switches
-
-
 
 % de-activates CM driver (if at false, no autonomous driving possible)
 autonomous_driving = true;
@@ -146,6 +160,18 @@ longit_control = true; % (TO IMPLEMENT)
 discrete_steer_angle = true; % (TO IMPLEMENT IN SIMULINK)
 
 
+%% Control law parameters
+
+% data types must match the ones indicated in "bus_definitions.m" for the
+% ctr_law_params_bus
+
+% desired control law to be used
+% 1 : Vilca controller
+ctr_law.flag = int8(1);
+
+% gains for Vilca controller
+% K = [K_d K_l K_o K_x K_RT K_theta]
+ctr_law.K_vilca = [1 2.2 8 0.1 0.01 0.6];
 
 
 
@@ -180,15 +206,18 @@ IMU.gyro.range(2), IMU.gyro.npts);
 IMU.offset = IMU.latency / (IMU.Fs^-1);
 
 % RP sensor
-dnsp_factor_lateral_err = 1;
+dnsp_factor_lateral_err = ceil(RP.Fs / IMU.Fs);
 
 
 %% Parameters to be modified in the CarMaker infofiles
+
 % these parameters are defined in this script and need to be send to
 % CarMaker through the configuration files).
 
 % sets desired preview distance for RP sensor
 ifile_setstr(ifid_vhcl, 'RPSensor.0.PreviewDist', RP.preview_dist);
+% sets desired steering mode
+ifile_setstr(ifid_vhcl, 'Steering.Kind', steer_mode);
 
 
 
@@ -199,6 +228,11 @@ ifile_write(ifid_vhcl, vhcl_infofile);
 ifile_delete(ifid_vhcl);
 ifile_delete(ifid_testrun);
 
+
+%% Other code to be executed before the simulation
+
+% saves bus definitions
+run('bus_definitions.m');
 
 
 

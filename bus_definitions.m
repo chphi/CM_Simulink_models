@@ -1,0 +1,181 @@
+
+% bus definitions for Simulink models. The definition of a bus is necessary to pass a structure to a
+% "matlab function" block in a simulink model.
+
+%% IMU output bus
+
+clear elems;
+
+% gyro output
+elems(1) = Simulink.BusElement;
+elems(1).Name = 'Omega_0';
+elems(1).Dimensions = 3;
+elems(1).DimensionsMode = 'Fixed';
+elems(1).DataType = 'double';
+elems(1).SampleTime = -1;
+elems(1).Complexity = 'real';
+
+% accels output
+elems(2) = Simulink.BusElement;
+elems(2).Name = 'Alpha_0';
+elems(2).Dimensions = 3;
+elems(2).DimensionsMode = 'Fixed';
+elems(2).DataType = 'double';
+elems(2).SampleTime = -1;
+elems(2).Complexity = 'real';
+
+imu_bus = Simulink.Bus;
+imu_bus.Elements = elems;
+
+
+%% Road property sensor bus
+
+clear elems;
+
+% lateral pos to road center
+elems(1) = Simulink.BusElement;
+elems(1).Name = 'lat_pos_ctr_road';
+elems(1).Dimensions = 1;
+elems(1).DimensionsMode = 'Fixed';
+elems(1).DataType = 'double';
+elems(1).SampleTime = -1;
+elems(1).Complexity = 'real';
+
+% lateral error path (centre of lane)
+elems(2) = Simulink.BusElement;
+elems(2).Name = 'lat_pos_ctr_lane';
+elems(2).Dimensions = 1;
+elems(2).DimensionsMode = 'Fixed';
+elems(2).DataType = 'double';
+elems(2).SampleTime = -1;
+elems(2).Complexity = 'real';
+
+% heading error w.r.t. path heading at preview point
+elems(3) = Simulink.BusElement;
+elems(3).Name = 'hdg_err';
+elems(3).Dimensions = 1;
+elems(3).DimensionsMode = 'Fixed';
+elems(3).DataType = 'double';
+elems(3).SampleTime = -1;
+elems(3).Complexity = 'real';
+
+% path heading at preview point
+elems(4) = Simulink.BusElement;
+elems(4).Name = 'path_hdg';
+elems(4).Dimensions = 1;
+elems(4).DimensionsMode = 'Fixed';
+elems(4).DataType = 'double';
+elems(4).SampleTime = -1;
+elems(4).Complexity = 'real';
+
+% path curvature at preview point
+elems(5) = Simulink.BusElement;
+elems(5).Name = 'curve_xy';
+elems(5).Dimensions = 1;
+elems(5).DimensionsMode = 'Fixed';
+elems(5).DataType = 'double';
+elems(5).SampleTime = -1;
+elems(5).Complexity = 'real';
+
+
+RPSensor_bus = Simulink.Bus;
+RPSensor_bus.Elements = elems;
+
+
+%% Steer angle sensor bus
+
+clear elems;
+
+% steering angle wheel 1
+elems(1) = Simulink.BusElement;
+elems(1).Name = 'steer_angle_1';
+elems(1).Dimensions = 1;
+elems(1).DimensionsMode = 'Fixed';
+elems(1).DataType = 'double';
+elems(1).SampleTime = -1;
+elems(1).Complexity = 'real';
+
+% steering angle wheel 2
+elems(2) = Simulink.BusElement;
+elems(2).Name = 'steer_angle_2';
+elems(2).Dimensions = 1;
+elems(2).DimensionsMode = 'Fixed';
+elems(2).DataType = 'double';
+elems(2).SampleTime = -1;
+elems(2).Complexity = 'real';
+
+% mean angle
+elems(3) = Simulink.BusElement;
+elems(3).Name = 'mean_angle';
+elems(3).Dimensions = 1;
+elems(3).DimensionsMode = 'Fixed';
+elems(3).DataType = 'double';
+elems(3).SampleTime = -1;
+elems(3).Complexity = 'real';
+
+SteerSensor_bus = Simulink.Bus;
+SteerSensor_bus.Elements = elems;
+
+
+%% Sensors outputs bus
+% "bus of buses"
+
+clear elems;
+
+% element for IMU output
+elems(1) = Simulink.BusElement;
+elems(1).Name = 'imu_out';
+elems(1).Dimensions = 1;
+elems(1).DimensionsMode = 'Fixed';
+elems(1).DataType = 'imu_bus';
+elems(1).SampleTime = -1;
+elems(1).Complexity = 'real';
+
+% element for RPSensor output
+elems(2) = Simulink.BusElement;
+elems(2).Name = 'rpsensor_out';
+elems(2).Dimensions = 1;
+elems(2).DimensionsMode = 'Fixed';
+elems(2).DataType = 'RPSensor_bus';
+elems(2).SampleTime = -1;
+elems(2).Complexity = 'real';
+
+% element for steer angles sensor output
+elems(3) = Simulink.BusElement;
+elems(3).Name = 'steersensor_out';
+elems(3).Dimensions = 1;
+elems(3).DimensionsMode = 'Fixed';
+elems(3).DataType = 'SteerSensor_bus';
+elems(3).SampleTime = -1;
+elems(3).Complexity = 'real';
+
+SensorsOut_bus = Simulink.Bus;
+SensorsOut_bus.Elements = elems;
+
+%% ctr_law bus
+
+% used to pass the ctr_law structure defined in "Parameters.m" to the
+% "control laws" block in the simulink model. 
+
+clear elems;
+
+% flag for choosing the control law
+elems(1) = Simulink.BusElement;
+elems(1).Name = 'flag';
+elems(1).Dimensions = 1;
+elems(1).DimensionsMode = 'Fixed';
+elems(1).DataType = 'int8';
+elems(1).SampleTime = -1;
+elems(1).Complexity = 'real';
+
+% Vilca controller gains
+elems(2) = Simulink.BusElement;
+elems(2).Name = 'K_vilca';
+elems(2).Dimensions = 6;
+elems(2).DimensionsMode = 'Fixed';
+elems(2).DataType = 'double';
+elems(2).SampleTime = -1;
+elems(2).Complexity = 'real';
+
+ctr_law_params_bus = Simulink.Bus;
+ctr_law_params_bus.Elements = elems;
