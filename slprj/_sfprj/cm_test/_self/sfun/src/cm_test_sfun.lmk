@@ -7,7 +7,7 @@ LIBFLAGS =
 
 OBJECTS = \
 	"cm_test_sfun.obj"\
-	"c2_cm_test.obj"\
+	"c1_cm_test.obj"\
 	"cm_test_sfun_registry.obj"\
 	"lccstub.obj"\
 	"cm_test_sfun.def"\
@@ -31,8 +31,8 @@ cm_test_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
 	$(LD) $(LDFLAGS) -o cm_test_sfun.mexw64 @cm_test_sfun.lmko
 cm_test_sfun.obj :	"cm_test_sfun.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "cm_test_sfun.c"
-c2_cm_test.obj :	"c2_cm_test.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c2_cm_test.c"
+c1_cm_test.obj :	"c1_cm_test.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c1_cm_test.c"
 cm_test_sfun_registry.obj :	"cm_test_sfun_registry.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "cm_test_sfun_registry.c"
 lccstub.obj :	"C:\Program Files\MATLAB\R2015a\sys\lcc64\lcc64\mex\lccstub.c"
