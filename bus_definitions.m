@@ -425,7 +425,7 @@ i = i + 1;
 % steering controller -------------
 elems(i) = Simulink.BusElement;
 elems(i).Name = 'st_angle_to_st_wheel';
-elems(i).Dimensions = 2;
+elems(i).Dimensions = 1;
 elems(i).DimensionsMode = 'Fixed';
 elems(i).DataType = 'double';
 elems(i).SampleTime = -1;

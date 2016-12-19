@@ -193,22 +193,19 @@ RP.pos = str2num(ifile_getstr(ifid_vhcl, 'RPSensor.0.pos')); %#ok<ST2NM>
 RP.Fs = 50;
 % distance of preview point (m)
 % as of now, the preview point distance is fixed for a simulation
-RP.preview_dist = 5;
+RP.preview_dist = 2;
 
 
 %% Simulink model switches
 
 % de-activates CM driver (if at false, no autonomous driving possible)
-autonomous_driving = true;
+% autonomous_driving = true; % to implement
 
 % activates lateral control
-lateral_control = true; % (TO IMPLEMENT)
+lateral_control = true;
 
 % activates longitudinal control
-longit_control = true; % (TO IMPLEMENT)
-
-% discrete steering angle switch
-discrete_steer_angle = true; % (TO IMPLEMENT IN SIMULINK)
+longit_control = true;
 
 
 %% Trajectory tracking control law parameters
@@ -225,7 +222,7 @@ ctr_law.flag = int8(1);
 ctr_law.K_vilca = [1 2.2 8 0.1 0.01 0.6];
 
 % target speed (m/s)
-ctr_law.target_speed = 5;
+ctr_law.target_speed = 8;
 
 % distance to target in body frame 
 % (in case of dynamic target which distance is fixed wrt the car)
@@ -284,7 +281,9 @@ low_ctr.brake_to_Trq = brake_to_pMC * pMC_to_Trq_mat([1,3]);
 
 % steering angle to angle at steering wheel conversion factor
 % (empirical)
-low_ctr.st_angle_to_st_wheel = 180;
+% good matching until ~1.5*pi angle at steering wheel (then there are some
+% non linear effects).
+low_ctr.st_angle_to_st_wheel = 12.8;
 
 %% Parameters computed from the input values in previous sections
 % <<< DO NOT enter numerical values here >>>
