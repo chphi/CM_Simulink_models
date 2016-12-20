@@ -1,3 +1,0 @@
-LIBRARY cm_test_sfun.mexw64
-EXPORTS
-mexFunction

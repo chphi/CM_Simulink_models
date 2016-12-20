@@ -5,51 +5,67 @@
 %% Vehicle parameters bus
 
 clear elems;
+i = 1;
 
 % wheelbase
-elems(1) = Simulink.BusElement;
-elems(1).Name = 'wheelbase';
-elems(1).Dimensions = 1;
-elems(1).DimensionsMode = 'Fixed';
-elems(1).DataType = 'double';
-elems(1).SampleTime = -1;
-elems(1).Complexity = 'real';
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'wheelbase';
+elems(i).Dimensions = 1;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'double';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
 
-% lateral error path (centre of lane)
-elems(2) = Simulink.BusElement;
-elems(2).Name = 'rear_axle_x';
-elems(2).Dimensions = 1;
-elems(2).DimensionsMode = 'Fixed';
-elems(2).DataType = 'double';
-elems(2).SampleTime = -1;
-elems(2).Complexity = 'real';
+% rear axle x-position in car frame
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'rear_axle_x';
+elems(i).Dimensions = 1;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'double';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
+
+% front axle x-position in car frame
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'front_axle_x';
+elems(i).Dimensions = 1;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'double';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
 
 %  wheel radius
-elems(3) = Simulink.BusElement;
-elems(3).Name = 'wheel_radius';
-elems(3).Dimensions = 1;
-elems(3).DimensionsMode = 'Fixed';
-elems(3).DataType = 'double';
-elems(3).SampleTime = -1;
-elems(3).Complexity = 'real';
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'wheel_radius';
+elems(i).Dimensions = 1;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'double';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
 
 % mass
-elems(4) = Simulink.BusElement;
-elems(4).Name = 'mass';
-elems(4).Dimensions = 1;
-elems(4).DimensionsMode = 'Fixed';
-elems(4).DataType = 'double';
-elems(4).SampleTime = -1;
-elems(4).Complexity = 'real';
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'mass';
+elems(i).Dimensions = 1;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'double';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
 
 % gear ratio
-elems(5) = Simulink.BusElement;
-elems(5).Name = 'gear_ratio';
-elems(5).Dimensions = 1;
-elems(5).DimensionsMode = 'Fixed';
-elems(5).DataType = 'double';
-elems(5).SampleTime = -1;
-elems(5).Complexity = 'real';
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'gear_ratio';
+elems(i).Dimensions = 1;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'double';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
 
 
 vhcl_bus = Simulink.Bus;
@@ -198,7 +214,7 @@ SteerSensor_bus.Elements = elems;
 
 clear elems;
 
-% element for IMU output
+% motor odometry
 elems(1) = Simulink.BusElement;
 elems(1).Name = 'vel_from_motor';
 elems(1).Dimensions = 1;
@@ -286,6 +302,16 @@ i = i + 1;
 elems(i) = Simulink.BusElement;
 elems(i).Name = 'K_vilca';
 elems(i).Dimensions = 6;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'double';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
+
+% Stanley controller gains
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'K_stanley';
+elems(i).Dimensions = length(ctr_law.K_stanley);
 elems(i).DimensionsMode = 'Fixed';
 elems(i).DataType = 'double';
 elems(i).SampleTime = -1;

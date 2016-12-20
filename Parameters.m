@@ -79,6 +79,8 @@ vhcl.wheelbase = 1e-3 * ifile_getnum(ifid_vhcl,'CarGen.Vehicle.WheelBase');
 % x-position of rear axle
 % "getnum" takes only the first coordinate
 vhcl.rear_axle_x = ifile_getnum(ifid_vhcl, 'WheelCarrier.rr.pos');
+% x-pos of front axle
+vhcl.front_axle_x = ifile_getnum(ifid_vhcl, 'WheelCarrier.fr.pos');
 
 % wheel radius (m)
 w_dims = str2num(ifile_getstr(ifid_vhcl,'CarGen.Vehicle.WheelSize')); %#ok<ST2NM>
@@ -180,6 +182,7 @@ mag.Fs = 50;
 % information and does not correspond to reality. On the vipalabs, the
 % lateral errors information is given by a fusion of the infos of the real
 % sensors (image, gps, imu, ...).
+% The 
 % get RP sensor name
 RP.name = ifile_getstr(ifid_vhcl, 'RPSensor.0.name');
 % checks name 
@@ -187,13 +190,13 @@ RP.name = ifile_getstr(ifid_vhcl, 'RPSensor.0.name');
 if not(strcmp(RP.name, 'RP00'))
     throw(MException('RP:BadName','Wrong RPSensor name. Should be RP00'))
 end
-% RP sensor position
+% RP sensor position in car frame (origin at rear)
 RP.pos = str2num(ifile_getstr(ifid_vhcl, 'RPSensor.0.pos')); %#ok<ST2NM>
 % sampling frequency of RP sensor
 RP.Fs = 50;
 % distance of preview point (m)
 % as of now, the preview point distance is fixed for a simulation
-RP.preview_dist = 2;
+RP.preview_dist = 0;
 
 
 %% Simulink model switches
@@ -215,11 +218,17 @@ longit_control = true;
 
 % desired control law to be used
 % 1 : Vilca controller
-ctr_law.flag = int8(1);
+% 2 : Stanley controller
+ctr_law.flag = 2;
+% convert to int
+ctr_law.flag = int8(ctr_law.flag);
 
 % gains for Vilca controller
 % K = [K_d K_l K_o K_x K_RT K_theta]
 ctr_law.K_vilca = [1 2.2 8 0.1 0.01 0.6];
+% gains for Stanley controller
+% K_stanley = [k_main, k_d_yaw k_soft k_d_steer]
+ctr_law.K_stanley = [2.5 0.1 1 1];
 
 % target speed (m/s)
 ctr_law.target_speed = 8;
@@ -227,6 +236,14 @@ ctr_law.target_speed = 8;
 % distance to target in body frame 
 % (in case of dynamic target which distance is fixed wrt the car)
 ctr_law.d_x_target = RP.preview_dist;
+
+% checks preview distance w.r.t. the control law
+if ctr_law.flag == 2
+    % if Stanley controller, the error must be computed at front axle
+    % prev point x-position to front axle
+    pos_to_f_axle = RP.pos(1) + ctr_law.d_x_target - vhcl.front_axle_x;
+    assert(abs(pos_to_f_axle) < 0.5 )
+end
 
 % min and max speed for control law (m/s)
 ctr_law.v_min = 1;
