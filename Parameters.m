@@ -225,10 +225,13 @@ ctr_law.flag = int8(ctr_law.flag);
 
 % gains for Vilca controller
 % K = [K_d K_l K_o K_x K_RT K_theta]
-ctr_law.K_vilca = [1 2.2 8 0.1 0.01 0.6];
+% ctr_law.K_vilca = [1, 2.2, 8, 0.1, 0.01, 0.6]; % def of p.74
+ctr_law.K_vilca = [0.1, 0.6, 10, 0.1, 0.3, 0.01]; % def of p.71
 % gains for Stanley controller
 % K_stanley = [k_main, k_d_yaw k_soft k_d_steer]
 ctr_law.K_stanley = [2.5 0.1 1 1];
+% gain for chained form kinematic controller
+ctr_law.K_kin = 0.2;
 
 % target speed (m/s)
 ctr_law.target_speed = 8;

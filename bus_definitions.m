@@ -74,24 +74,27 @@ vhcl_bus.Elements = elems;
 %% IMU output bus
 
 clear elems;
+i = 1;
 
 % gyro output
-elems(1) = Simulink.BusElement;
-elems(1).Name = 'Omega_0';
-elems(1).Dimensions = 3;
-elems(1).DimensionsMode = 'Fixed';
-elems(1).DataType = 'double';
-elems(1).SampleTime = -1;
-elems(1).Complexity = 'real';
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'Omega_0';
+elems(i).Dimensions = 3;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'double';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
 
 % accels output
-elems(2) = Simulink.BusElement;
-elems(2).Name = 'Alpha_0';
-elems(2).Dimensions = 3;
-elems(2).DimensionsMode = 'Fixed';
-elems(2).DataType = 'double';
-elems(2).SampleTime = -1;
-elems(2).Complexity = 'real';
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'Alpha_0';
+elems(i).Dimensions = 3;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'double';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
 
 imu_bus = Simulink.Bus;
 imu_bus.Elements = elems;
@@ -100,15 +103,17 @@ imu_bus.Elements = elems;
 %% Magnetometer output bus
 
 clear elems
+i = 1;
 
 % 2D heading
-elems(1) = Simulink.BusElement;
-elems(1).Name = 'hdg';
-elems(1).Dimensions = 1;
-elems(1).DimensionsMode = 'Fixed';
-elems(1).DataType = 'double';
-elems(1).SampleTime = -1;
-elems(1).Complexity = 'real';
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'hdg';
+elems(i).Dimensions = 1;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'double';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
 
 mag_bus = Simulink.Bus;
 mag_bus.Elements = elems;
@@ -116,60 +121,78 @@ mag_bus.Elements = elems;
 %% Road property sensor bus
 
 clear elems;
+i = 1;
 
 % lateral pos to road center
-elems(1) = Simulink.BusElement;
-elems(1).Name = 'lat_pos_ctr_road';
-elems(1).Dimensions = 1;
-elems(1).DimensionsMode = 'Fixed';
-elems(1).DataType = 'double';
-elems(1).SampleTime = -1;
-elems(1).Complexity = 'real';
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'lat_pos_ctr_road';
+elems(i).Dimensions = 1;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'double';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
 
 % lateral error path (centre of lane)
-elems(2) = Simulink.BusElement;
-elems(2).Name = 'lat_pos_ctr_lane';
-elems(2).Dimensions = 1;
-elems(2).DimensionsMode = 'Fixed';
-elems(2).DataType = 'double';
-elems(2).SampleTime = -1;
-elems(2).Complexity = 'real';
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'lat_pos_ctr_lane';
+elems(i).Dimensions = 1;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'double';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
 
 % heading error w.r.t. path heading at preview point
-elems(3) = Simulink.BusElement;
-elems(3).Name = 'hdg_err';
-elems(3).Dimensions = 1;
-elems(3).DimensionsMode = 'Fixed';
-elems(3).DataType = 'double';
-elems(3).SampleTime = -1;
-elems(3).Complexity = 'real';
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'hdg_err';
+elems(i).Dimensions = 1;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'double';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
 
 % path heading at preview point
-elems(4) = Simulink.BusElement;
-elems(4).Name = 'path_hdg';
-elems(4).Dimensions = 1;
-elems(4).DimensionsMode = 'Fixed';
-elems(4).DataType = 'double';
-elems(4).SampleTime = -1;
-elems(4).Complexity = 'real';
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'path_hdg';
+elems(i).Dimensions = 1;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'double';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
 
 % path curvature at preview point
-elems(5) = Simulink.BusElement;
-elems(5).Name = 'curve_xy';
-elems(5).Dimensions = 1;
-elems(5).DimensionsMode = 'Fixed';
-elems(5).DataType = 'double';
-elems(5).SampleTime = -1;
-elems(5).Complexity = 'real';
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'curve_xy';
+elems(i).Dimensions = 1;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'double';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
 
 % position of preview point in car frame with centre of rear axle as origin
-elems(6) = Simulink.BusElement;
-elems(6).Name = 'preview_pt_pos_Fr1';
-elems(6).Dimensions = 3;
-elems(6).DimensionsMode = 'Fixed';
-elems(6).DataType = 'double';
-elems(6).SampleTime = -1;
-elems(6).Complexity = 'real';
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'preview_pt_pos_Fr1';
+elems(i).Dimensions = 3;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'double';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
+
+% curvilinear position of vehicle on path 
+% (projection from origin of Fr0 which is not far from the rear axle)
+elems(i) = Simulink.BusElement;
+elems(i).Name = 's';
+elems(i).Dimensions = 1;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'double';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
 
 
 RPSensor_bus = Simulink.Bus;
@@ -179,33 +202,37 @@ RPSensor_bus.Elements = elems;
 %% Steer angle sensor bus
 
 clear elems;
+i = 1;
 
 % steering angle wheel 1
-elems(1) = Simulink.BusElement;
-elems(1).Name = 'steer_angle_1';
-elems(1).Dimensions = 1;
-elems(1).DimensionsMode = 'Fixed';
-elems(1).DataType = 'double';
-elems(1).SampleTime = -1;
-elems(1).Complexity = 'real';
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'steer_angle_1';
+elems(i).Dimensions = 1;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'double';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
 
 % steering angle wheel 2
-elems(2) = Simulink.BusElement;
-elems(2).Name = 'steer_angle_2';
-elems(2).Dimensions = 1;
-elems(2).DimensionsMode = 'Fixed';
-elems(2).DataType = 'double';
-elems(2).SampleTime = -1;
-elems(2).Complexity = 'real';
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'steer_angle_2';
+elems(i).Dimensions = 1;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'double';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
 
 % mean angle
-elems(3) = Simulink.BusElement;
-elems(3).Name = 'mean_angle';
-elems(3).Dimensions = 1;
-elems(3).DimensionsMode = 'Fixed';
-elems(3).DataType = 'double';
-elems(3).SampleTime = -1;
-elems(3).Complexity = 'real';
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'mean_angle';
+elems(i).Dimensions = 1;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'double';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
 
 SteerSensor_bus = Simulink.Bus;
 SteerSensor_bus.Elements = elems;
@@ -213,15 +240,17 @@ SteerSensor_bus.Elements = elems;
 %% Odometry signals bus
 
 clear elems;
+i = 1;
 
 % motor odometry
-elems(1) = Simulink.BusElement;
-elems(1).Name = 'vel_from_motor';
-elems(1).Dimensions = 1;
-elems(1).DimensionsMode = 'Fixed';
-elems(1).DataType = 'double';
-elems(1).SampleTime = -1;
-elems(1).Complexity = 'real';
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'vel_from_motor';
+elems(i).Dimensions = 1;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'double';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
 
 OdoSensors_bus = Simulink.Bus;
 OdoSensors_bus.Elements = elems;
@@ -231,51 +260,57 @@ OdoSensors_bus.Elements = elems;
 % "bus of buses"
 
 clear elems;
+i = 1;
 
 % element for IMU output
-elems(1) = Simulink.BusElement;
-elems(1).Name = 'imu_out';
-elems(1).Dimensions = 1;
-elems(1).DimensionsMode = 'Fixed';
-elems(1).DataType = 'imu_bus';
-elems(1).SampleTime = -1;
-elems(1).Complexity = 'real';
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'imu_out';
+elems(i).Dimensions = 1;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'imu_bus';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
 
 % element for mag output
-elems(2) = Simulink.BusElement;
-elems(2).Name = 'mag_out';
-elems(2).Dimensions = 1;
-elems(2).DimensionsMode = 'Fixed';
-elems(2).DataType = 'mag_bus';
-elems(2).SampleTime = -1;
-elems(2).Complexity = 'real';
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'mag_out';
+elems(i).Dimensions = 1;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'mag_bus';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
 
 % element for RPSensor output
-elems(3) = Simulink.BusElement;
-elems(3).Name = 'rpsensor_out';
-elems(3).Dimensions = 1;
-elems(3).DimensionsMode = 'Fixed';
-elems(3).DataType = 'RPSensor_bus';
-elems(3).SampleTime = -1;
-elems(3).Complexity = 'real';
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'rpsensor_out';
+elems(i).Dimensions = 1;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'RPSensor_bus';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
 
 % element for steer angles sensor output
-elems(4) = Simulink.BusElement;
-elems(4).Name = 'steersensor_out';
-elems(4).Dimensions = 1;
-elems(4).DimensionsMode = 'Fixed';
-elems(4).DataType = 'SteerSensor_bus';
-elems(4).SampleTime = -1;
-elems(4).Complexity = 'real';
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'steersensor_out';
+elems(i).Dimensions = 1;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'SteerSensor_bus';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
 
 % element for odo sensors output bus
-elems(5) = Simulink.BusElement;
-elems(5).Name = 'odo_out';
-elems(5).Dimensions = 1;
-elems(5).DimensionsMode = 'Fixed';
-elems(5).DataType = 'OdoSensors_bus';
-elems(5).SampleTime = -1;
-elems(5).Complexity = 'real';
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'odo_out';
+elems(i).Dimensions = 1;
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'OdoSensors_bus';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
 
 SensorsOut_bus = Simulink.Bus;
 SensorsOut_bus.Elements = elems;
