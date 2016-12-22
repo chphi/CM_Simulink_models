@@ -336,7 +336,7 @@ i = i + 1;
 % Vilca controller gains
 elems(i) = Simulink.BusElement;
 elems(i).Name = 'K_vilca';
-elems(i).Dimensions = 6;
+elems(i).Dimensions = length(ctr_law.K_vilca);
 elems(i).DimensionsMode = 'Fixed';
 elems(i).DataType = 'double';
 elems(i).SampleTime = -1;
@@ -352,6 +352,17 @@ elems(i).DataType = 'double';
 elems(i).SampleTime = -1;
 elems(i).Complexity = 'real';
 i = i + 1;
+
+% Kinematic controller gains
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'K_kin';
+elems(i).Dimensions = length(ctr_law.K_kin);
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'double';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
+
 
 % Target speed
 elems(i) = Simulink.BusElement;

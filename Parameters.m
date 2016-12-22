@@ -219,7 +219,8 @@ longit_control = true;
 % desired control law to be used
 % 1 : Vilca controller
 % 2 : Stanley controller
-ctr_law.flag = 2;
+% 3 : Kinematic controller (based on kinematic system in chained form)
+ctr_law.flag = 3;
 % convert to int
 ctr_law.flag = int8(ctr_law.flag);
 
@@ -240,13 +241,15 @@ ctr_law.target_speed = 8;
 % (in case of dynamic target which distance is fixed wrt the car)
 ctr_law.d_x_target = RP.preview_dist;
 
-% checks preview distance w.r.t. the control law
+% if Stanley controller, the error must be computed at front axle
+% prev point x-position to front axle
 if ctr_law.flag == 2
-    % if Stanley controller, the error must be computed at front axle
-    % prev point x-position to front axle
     pos_to_f_axle = RP.pos(1) + ctr_law.d_x_target - vhcl.front_axle_x;
+    % checks preview distance w.r.t. the control law
     assert(abs(pos_to_f_axle) < 0.5 )
 end
+
+% TODO: for Kinematic controller, the data should ideally be at rear axle
 
 % min and max speed for control law (m/s)
 ctr_law.v_min = 1;
