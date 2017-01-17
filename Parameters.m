@@ -219,23 +219,31 @@ longit_control = true;
 % desired control law to be used
 % 1 : Vilca controller
 % 2 : Stanley controller
-% 3 : Kinematic controller (based on kinematic system in chained form)
-ctr_law.flag = 3;
+% 3 : Kinematic controller "dot" - chained form to control "theta_dot"
+%     (derivative of steerign angle)
+% 4 : Kinematic controller - chained form to control "theta" (steering
+%     angle directly)
+ctr_law.flag = 4;
 % convert to int
 ctr_law.flag = int8(ctr_law.flag);
 
 % gains for Vilca controller
 % K = [K_d K_l K_o K_x K_RT K_theta]
-% ctr_law.K_vilca = [1, 2.2, 8, 0.1, 0.01, 0.6]; % def of p.74
-ctr_law.K_vilca = [0.1, 0.6, 10, 0.1, 0.3, 0.01]; % def of p.71
+ctr_law.K_vilca = [1, 2.2, 8, 0.1, 0.01, 0.6]; % def of p.74
+% ctr_law.K_vilca = [0.1, 0.6, 10, 0.1, 0.3, 0.01]; % def of p.71
 % gains for Stanley controller
 % K_stanley = [k_main, k_d_yaw k_soft k_d_steer]
 ctr_law.K_stanley = [2.5 0.1 1 1];
+% gain for chained form kinematic controller "dot"
+ctr_law.K_kin_dot = 0.2; % 0.2 for optimal in the paper
 % gain for chained form kinematic controller
-ctr_law.K_kin = 0.2;
+% ref curvilinear distance to null the errors
+d_m = 2;
+% check [Bom2006] for tuning
+ctr_law.K_kin = [22.5/d_m^2, 9.5/d_m];  % [K_p K_d]
 
 % target speed (m/s)
-ctr_law.target_speed = 8;
+ctr_law.target_speed = 5;
 
 % distance to target in body frame 
 % (in case of dynamic target which distance is fixed wrt the car)

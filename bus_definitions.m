@@ -353,6 +353,16 @@ elems(i).SampleTime = -1;
 elems(i).Complexity = 'real';
 i = i + 1;
 
+% Kinematic controller "dot" gain
+elems(i) = Simulink.BusElement;
+elems(i).Name = 'K_kin_dot';
+elems(i).Dimensions = length(ctr_law.K_kin_dot);
+elems(i).DimensionsMode = 'Fixed';
+elems(i).DataType = 'double';
+elems(i).SampleTime = -1;
+elems(i).Complexity = 'real';
+i = i + 1;
+
 % Kinematic controller gains
 elems(i) = Simulink.BusElement;
 elems(i).Name = 'K_kin';
